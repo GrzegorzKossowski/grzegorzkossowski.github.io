@@ -10,6 +10,7 @@ import Pricing from "../components/Pricing.astro";
 import Testimonials from "../components/Testimonials.astro";
 import NewsLetter from "../components/Newsletter.astro";
 import { ShoppingBag, BookOpen } from "lucide-astro";
+import LatestBooks from "../components/LatestBooks.astro";
 ---
 
 <Layout title="Home Page">
@@ -43,15 +44,8 @@ import { ShoppingBag, BookOpen } from "lucide-astro";
       class="relative rounded-xl shadow-2xl transition duration-500 hover:scale-[1.01]"
     />
   </Hero>
-  <Content
-    title="Content Title"
-    description="This is a description of the content."
-  />
-  <!-- <Ecommerce
-    title="Ecommerce Title"
-    description="This is a description of the ecommerce section."
-  /> -->
-  <Pricing
+  <LatestBooks />
+  <!-- <Pricing
     title="Pricing Title"
     description="This is a description of the pricing section."
   />
@@ -62,5 +56,5 @@ import { ShoppingBag, BookOpen } from "lucide-astro";
   <NewsLetter
     title="Newsletter Title"
     description="This is a description of the newsletter section."
-  />
+  /> -->
 </Layout>

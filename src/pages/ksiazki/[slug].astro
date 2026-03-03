@@ -1,0 +1,125 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { ShoppingCart, BookTemplate, Globe, Tag } from "lucide-astro";
+
+export async function getStaticPaths() {
+  const allBooks = await getCollection("books");
+  return allBooks.map((book) => ({
+    params: { slug: book.slug },
+    props: { book },
+  }));
+}
+
+interface Props {
+  book: CollectionEntry<"books">;
+}
+const { book } = Astro.props;
+const { Content } = await book.render();
+---
+
+<Layout title={book.data.title}>
+  <section class="py-24 container mx-auto px-5">
+    <div class="flex flex-wrap lg:flex-nowrap gap-12">
+      <div class="w-full lg:w-1/3">
+        <img
+          src={book.data.cover.src}
+          alt={book.data.title}
+          class="rounded-2xl shadow-2xl w-full sticky top-24"
+        />
+      </div>
+
+      <div class="w-full lg:w-2/3">
+        <span
+          class="text-romance-600 dark:text-gold-500 font-bold tracking-widest uppercase text-sm"
+          >{book.data.category}</span
+        >
+        <h1 class="text-h1 mt-2 mb-6">{book.data.title}</h1>
+
+        <a
+          href={book.data.buyUrl}
+          target="_blank"
+          class="btn-primary inline-flex items-center gap-2 mb-10"
+        >
+          <ShoppingCart size={20} /> Kup na Empik.com
+        </a>
+
+        <div class="prose dark:prose-invert max-w-none mb-16">
+          <h2 class="text-2xl font-serif mb-4">Opis produktu</h2>
+          <Content />
+        </div>
+
+        <div
+          class="bg-gray-50 dark:bg-slate-900/50 p-8 rounded-2xl border border-gray-100 dark:border-slate-800"
+        >
+          <h2
+            class="text-xl font-bold mb-6 flex items-center gap-2 text-gray-900 dark:text-white"
+          >
+            <BookTemplate
+              size={24}
+              class="text-romance-600 dark:text-gold-500"
+            /> Informacje szczegółowe
+          </h2>
+
+          <dl class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 text-sm">
+            <div
+              class="flex justify-between border-b border-gray-200 dark:border-slate-700 pb-2"
+            >
+              <dt class="opacity-60">Autor:</dt>
+              <dd class="font-bold text-gray-900 dark:text-white">
+                {book.data.author}
+              </dd>
+            </div>
+
+            <div
+              class="flex justify-between border-b border-gray-200 dark:border-slate-700 pb-2"
+            >
+              <dt class="opacity-60">Wydawca:</dt>
+              <dd class="text-gray-900 dark:text-white">
+                {book.data.publisher}
+              </dd>
+            </div>
+
+            <div
+              class="flex justify-between border-b border-gray-200 dark:border-slate-700 pb-2"
+            >
+              <dt class="opacity-60 flex items-center gap-1">
+                <Globe size={14} /> Język:
+              </dt>
+              <dd class="text-gray-900 dark:text-white">
+                {book.data.language || "polski"}
+              </dd>
+            </div>
+
+            <div
+              class="flex justify-between border-b border-gray-200 dark:border-slate-700 pb-2"
+            >
+              <dt class="opacity-60">ISBN:</dt>
+              <dd class="text-gray-900 dark:text-white">{book.data.isbn}</dd>
+            </div>
+
+            <div
+              class="flex justify-between border-b border-gray-200 dark:border-slate-700 pb-2"
+            >
+              <dt class="opacity-60">Liczba stron:</dt>
+              <dd class="text-gray-900 dark:text-white">{book.data.pages}</dd>
+            </div>
+
+            {
+              book.data.price && (
+                <div class="flex justify-between border-b border-gray-200 dark:border-slate-700 pb-2">
+                  <dt class="opacity-60 flex items-center gap-1 font-bold text-romance-600 dark:text-gold-500">
+                    <Tag size={14} /> Cena:
+                  </dt>
+                  <dd class="font-bold text-lg text-gray-900 dark:text-white">
+                    {book.data.price} zł
+                  </dd>
+                </div>
+              )
+            }
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

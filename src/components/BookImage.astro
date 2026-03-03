@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+import defaultCover from "../assets/placeholder-cover.jpg";
+
+interface Props {
+  cover: any; // Obiekt obrazu z Astro
+  alt: string;
+  class?: string;
+}
+
+const { cover, alt, class: className } = Astro.props;
+---
+
+{
+  cover ? (
+    <Image src={cover} alt={alt} class={className} width={500} height={700} />
+  ) : (
+    <div
+      class={`relative bg-slate-200 dark:bg-slate-800 flex items-center justify-center overflow-hidden ${className}`}
+    >
+      <Image
+        src={defaultCover}
+        alt="Brak okładki"
+        class="absolute inset-0 w-full h-full object-cover opacity-50 grayscale"
+      />
+      <span class="relative z-10 text-xs font-bold uppercase tracking-widest opacity-40 text-center px-4">
+        Okładka w przygotowaniu
+      </span>
+    </div>
+  )
+}

@@ -36,8 +36,14 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
   rel="stylesheet"
 />
 <link rel="sitemap" href="/sitemap-index.xml" />
-
 <script is:inline>
+  const savedTheme = localStorage.getItem('theme');
+  // Jeśli nie ma nic w pamięci, daj dark. Jeśli jest, użyj zapisanego.
+  const theme = savedTheme || 'dark'; 
+  document.documentElement.classList.toggle('dark', theme === 'dark');
+</script>
+
+<!-- <script is:inline>
   const theme = (() => {
     if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
       return localStorage.getItem("theme");
@@ -54,4 +60,4 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
     document.documentElement.classList.add("dark");
   }
   window.localStorage.setItem("theme", theme);
-</script>
+</script> -->
