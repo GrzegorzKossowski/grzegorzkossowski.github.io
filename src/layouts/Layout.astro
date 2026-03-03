@@ -1,28 +1,26 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import "../styles/global.css";
+import BaseMeta from "../components/BaseMeta.astro";
+import Footer from "../components/Footer.astro";
+import Navigation from "../components/Navigation.astro";
+import ScrollToTop from '../components/ScrollToTop.astro';
+import '../styles/global.css';
 const { title } = Astro.props;
 ---
+
 <html lang="pl">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <BaseHead title={title} description="Some description"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <BaseMeta title={title} description="Some description" />
   </head>
   <body>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Posts</a>
-      <a href="#">Contact</a>
-    </nav>
-    <h1>{title}</h1>
+    <ScrollToTop />
+    <Navigation title={title} description="Some description" firstName="Grzegorz" lastName="Kossowski" />
     <article>
-      <slot /> <!-- your content is injected here -->
+      <slot />
     </article>
-    <Footer />
-  </body>
-  <style>
+    <Footer firstName="Grzegorz" lastName="Kossowski" />
+  </body><style>
     h1 {
       font-size: 2rem;
     }

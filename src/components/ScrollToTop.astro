@@ -1,0 +1,44 @@
+---
+import { ChevronUp } from 'lucide-astro';
+---
+
+<button
+  id="scrollToTop"
+  aria-label="Wróć do góry"
+  class="fixed bottom-8 right-8 z-50 flex h-12 w-12 translate-y-20 items-center justify-center rounded-full bg-romance-600 text-white shadow-xl transition-all duration-500 opacity-0 hover:bg-romance-500 hover:scale-110 active:scale-95 dark:bg-gold-500 dark:text-gray-900"
+>
+  <ChevronUp size={28} strokeWidth={2.5} />
+</button>
+
+<script>
+  const scrollBtn = document.getElementById("scrollToTop");
+
+  const handleScroll = () => {
+    if (window.scrollY > 300) {
+      // Pokazuje przycisk: wraca na miejsce i staje się widoczny
+      scrollBtn?.classList.remove("translate-y-20", "opacity-0");
+      scrollBtn?.classList.add("translate-y-0", "opacity-100");
+    } else {
+      // Chowa przycisk: ucieka w dół i znika
+      scrollBtn?.classList.add("translate-y-20", "opacity-0");
+      scrollBtn?.classList.remove("translate-y-0", "opacity-100");
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  scrollBtn?.addEventListener("click", scrollToTop);
+</script>
+
+<style>
+  /* Zapewniamy, że przycisk nie przeszkadza w interakcji, gdy jest ukryty */
+  #scrollToTop.opacity-0 {
+    pointer-events: none;
+  }
+</style>

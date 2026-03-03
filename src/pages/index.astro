@@ -4,10 +4,63 @@
 console.log("This runs in your terminal, not the browser!");
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
+import Content from "../components/Content.astro";
+import Ecommerce from "../components/Ecommerce.astro";
+import Pricing from "../components/Pricing.astro";
+import Testimonials from "../components/Testimonials.astro";
+import NewsLetter from "../components/Newsletter.astro";
+import { ShoppingBag, BookOpen } from "lucide-astro";
 ---
 
-<!-- Below is your "component template." It's just HTML, but with
-    some magic sprinkled in to help you build great templates. -->---
 <Layout title="Home Page">
-  <Hero />
+  <Hero>
+    <Fragment slot="author"> Romans, Romantasy & Isekai </Fragment>
+
+    <Fragment slot="title">
+      Zatrać się w światach, których
+      <br class="hidden lg:inline-block" /> nie zechcesz już opuścić
+    </Fragment>
+
+    <Fragment slot="description">
+      Od gorących romansów po epickie przygody. Odkryj historie, w których
+      namiętność spotyka przeznaczenie. Twoja następna ulubiona podróż zaczyna
+      się właśnie tutaj.
+    </Fragment>
+
+    <Fragment slot="buttons">
+      <a href="https://www.empik.com/..." class="btn-primary">
+        <ShoppingBag class="mr-2" size={22} /> Książki w Empik
+      </a>
+      <a href="#newsletter" class="btn-secondary">
+        <BookOpen class="mr-2" size={22} /> Darmowy rozdział
+      </a>
+    </Fragment>
+
+    <img
+      slot="image"
+      src="/images/latest-book-mockup.jpg"
+      alt="Najnowsza książka"
+      class="relative rounded-xl shadow-2xl transition duration-500 hover:scale-[1.01]"
+    />
+  </Hero>
+  <Content
+    title="Content Title"
+    description="This is a description of the content."
+  />
+  <!-- <Ecommerce
+    title="Ecommerce Title"
+    description="This is a description of the ecommerce section."
+  /> -->
+  <Pricing
+    title="Pricing Title"
+    description="This is a description of the pricing section."
+  />
+  <Testimonials
+    title="Testimonials Title"
+    description="This is a description of the testimonials section."
+  />
+  <NewsLetter
+    title="Newsletter Title"
+    description="This is a description of the newsletter section."
+  />
 </Layout>

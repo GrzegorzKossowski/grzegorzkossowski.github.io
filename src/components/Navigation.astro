@@ -1,0 +1,66 @@
+---
+import ThemeIcon from "../components/ThemeIcon.astro";
+import { Book, BookOpen, ChevronRight } from "lucide-astro";
+interface Props {
+  firstName?: string;
+  lastName?: string;
+  title?: string;
+  description: string;
+  image?: string;
+}
+const {
+  firstName,
+  lastName,
+  title,
+  description,
+  image = "/blog-placeholder-1.jpg",
+} = Astro.props;
+---
+
+<header
+  class="body-font border-b border-gray-100 dark:border-slate-800 transition-colors duration-500"
+>
+  <div
+    class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
+  >
+    <a
+      href="/"
+      class="flex title-font font-medium items-center mb-4 md:mb-0 group cursor-pointer"
+    >
+      <div
+        class="p-2 bg-romance-600 rounded-lg text-white group-hover:bg-romance-500 transition-colors shadow-lg shadow-romance-600/20"
+      >
+        <Book size={28} strokeWidth={2.5} />
+      </div>
+      <span
+        class="ml-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-serif"
+      >
+        {firstName}
+        <span class="text-romance-600 dark:text-gold-500">{lastName}</span>
+      </span>
+    </a>
+
+    <nav
+      class="md:ml-auto md:mr-6 flex flex-wrap items-center text-base justify-center font-medium"
+    >
+      <a href="/nowosci" class="mr-6 link-elegant">Nowości</a>
+      <a href="/ksiazki" class="mr-6 link-elegant">Wszystkie książki</a>
+      <a href="/serie" class="mr-6 link-elegant">Serie</a>
+      <a href="/o-mnie" class="mr-6 link-elegant">O mnie</a>
+
+      <div
+        class="flex items-center border-l border-gray-200 dark:border-slate-700 pl-6 ml-2"
+      >
+        <ThemeIcon />
+      </div>
+    </nav>
+
+    <a
+      href="#newsletter"
+      class="mt-4 md:mt-0 inline-flex items-center justify-center btn-primary py-2! px-5! text-sm"
+    >
+      <BookOpen class="mr-2" size={16} />
+      Materiały dodatkowe
+    </a>
+  </div>
+</header>

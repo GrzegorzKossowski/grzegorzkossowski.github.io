@@ -1,1 +1,132 @@
+/* src/styles/global.css */
 @import "tailwindcss";
+
+@theme {
+  /* Definiujemy nazwy rodzin fontów */
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Lora", serif; /* Używamy Lora jako główny tekst */
+
+  /* Jeśli wolisz bezszeryfowy tekst: */
+  /* --font-sans: "Inter", sans-serif; */
+
+  /* Nadpisujemy standardowe wielkości tekstu dla większej czytelności */
+  --font-size-base: 1.25rem; /* 20px zamiast 16px */
+
+  /* --- PALETA BAZOWA --- */
+  --color-ink-dark: #0f172a; /* Bardzo ciemny granat/slate */
+  --color-ink-light: #f8fafc; /* Off-white (papierowy) */
+
+  --color-romance-600: #9d174d; /* Głęboki róż/burgund */
+  --color-romance-500: #be185d; /* Żywszy róż */
+
+  --color-gold-500: #d4af37; /* Klasyczne złoto */
+  --color-gold-400: #f1d279; /* Jasne złoto */
+
+  /* --- ZMIENNE SEMANTYCZNE (Automatyczne) --- */
+  --color-page-bg: var(--color-ink-light);
+  --color-page-text: var(--color-ink-dark);
+
+  --color-btn-primary-bg: var(--color-romance-600);
+  --color-btn-primary-hover: var(--color-romance-500);
+
+  --color-btn-secondary-bg: transparent;
+  --color-btn-secondary-border: var(--color-ink-dark);
+  --color-btn-secondary-text: var(--color-ink-dark);
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  .dark {
+    /* Podmiana kolorów w trybie ciemnym */
+    --color-page-bg: #020617; /* Głęboka noc */
+    --color-page-text: #e2e8f0;
+
+    --color-btn-primary-bg: var(--color-romance-500);
+    --color-btn-primary-hover: var(--color-romance-600);
+
+    --color-btn-secondary-border: var(--color-gold-500);
+    --color-btn-secondary-text: var(--color-gold-500);
+  }
+
+  html {
+    /* Ustawiamy bazę, na której opierają się jednostki rem */
+    font-size: 20px;
+    @apply antialiased;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    line-height: 1.6; /* Większy interlinia = lepszy oddech tekstu */
+    font-weight: 450;
+    background-color: var(--color-page-bg);
+    color: var(--color-page-text);
+    @apply transition-colors duration-500 font-serif leading-relaxed; /* Font szeryfowy dodaje klimatu książki */
+  }
+
+  /* Hierarchia nagłówków */
+  h1,
+  .text-h1 {
+    font-family: var(--font-serif);
+    @apply text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6;
+    line-height: 1.05;
+  }
+
+  h2,
+  .text-h2 {
+    font-family: var(--font-serif);
+    @apply text-3xl md:text-4xl font-semibold mb-4;
+  }
+
+  h3,
+  .text-h3 {
+    font-family: var(--font-serif);
+    @apply text-2xl md:text-3xl font-semibold mb-3;
+  }
+
+  h4,
+  .text-h4 {
+    font-family: var(--font-serif);
+    @apply text-xl md:text-2xl font-medium mb-2;
+  }
+
+  /* Styl dla paragrafów w sekcji Hero i treści */
+  p {
+    @apply mb-6 opacity-90;
+  }
+
+  /* Specjalna klasa dla opisu w Hero, żeby był czytelniejszy */
+  .hero-description {
+    @apply text-lg md:text-xl leading-relaxed opacity-100 text-gray-800 dark:text-gray-200;
+  }
+}
+
+@layer components {
+  /* PRZYCISK GŁÓWNY (np. KUP TERAZ / EMPIK) */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-3 rounded-full font-semibold transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0;
+    background-color: var(--color-btn-primary-bg);
+    color: white;
+  }
+
+  /* PRZYCISK DRUGORZĘDNY (np. DARMOWY ROZDZIAŁ / NEWSLETTER) */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-3 rounded-full font-semibold border-2 transition-all duration-300 hover:bg-slate-100 dark:hover:bg-slate-900;
+    border-color: var(--color-btn-secondary-border);
+    color: var(--color-btn-secondary-text);
+  }
+
+  /* LINKI TEKSTOWE (np. w stopce lub menu) */
+  .link-elegant {
+    @apply relative transition-colors duration-300 hover:text-romance-600 dark:hover:text-gold-400;
+  }
+
+  .link-elegant::after {
+    content: "";
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300;
+  }
+
+  .link-elegant:hover::after {
+    @apply w-full;
+  }
+}
