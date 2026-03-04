@@ -4,9 +4,8 @@
 console.log("This runs in your terminal, not the browser!");
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
-import Content from "../components/Content.astro";
 import Ecommerce from "../components/Ecommerce.astro";
-import Pricing from "../components/Pricing.astro";
+import Feature from "../components/Feature.astro";
 import Testimonials from "../components/Testimonials.astro";
 import NewsLetter from "../components/Newsletter.astro";
 import { ShoppingBag, BookOpen } from "lucide-astro";
@@ -45,16 +44,9 @@ import LatestBooks from "../components/LatestBooks.astro";
     />
   </Hero>
   <LatestBooks />
-  <!-- <Pricing
-    title="Pricing Title"
-    description="This is a description of the pricing section."
+  <Feature
+    title="Feature Title"
+    description="This is a description of the feature section."
   />
-  <Testimonials
-    title="Testimonials Title"
-    description="This is a description of the testimonials section."
-  />
-  <NewsLetter
-    title="Newsletter Title"
-    description="This is a description of the newsletter section."
-  /> -->
+  <Testimonials title="Wasze wrażenia" />
 </Layout>

@@ -1,31 +1,20 @@
 ---
 import ThemeIcon from "../components/ThemeIcon.astro";
-import { Book, BookOpen, ChevronRight } from "lucide-astro";
+import { Book, BookOpen } from "lucide-astro";
 interface Props {
   firstName?: string;
   lastName?: string;
-  title?: string;
-  description: string;
-  image?: string;
 }
-const {
-  firstName,
-  lastName,
-  title,
-  description,
-  image = "/blog-placeholder-1.jpg",
-} = Astro.props;
+const { firstName, lastName } = Astro.props;
 ---
 
 <header
-  class="body-font border-b border-gray-100 dark:border-slate-800 transition-colors duration-500"
+  class="body-font border-b border-gray-100 dark:border-slate-800 transition-colors duration-500 sticky top-0 z-50 bg-white/90 dark:bg-slate-950/90 backdrop-blur-sm"
 >
-  <div
-    class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
-  >
+  <div class="container mx-auto flex p-5 items-center justify-between">
     <a
       href="/"
-      class="flex title-font font-medium items-center mb-4 md:mb-0 group cursor-pointer"
+      class="flex title-font font-medium items-center group cursor-pointer"
     >
       <div
         class="p-2 bg-romance-600 rounded-lg text-white group-hover:bg-romance-500 transition-colors shadow-lg shadow-romance-600/20"
@@ -40,27 +29,40 @@ const {
       </span>
     </a>
 
-    <nav
-      class="md:ml-auto md:mr-6 flex flex-wrap items-center text-base justify-center font-medium"
-    >
-      <a href="/nowosci" class="mr-6 link-elegant">Nowości</a>
-      <a href="/ksiazki" class="mr-6 link-elegant">Wszystkie książki</a>
-      <a href="/serie" class="mr-6 link-elegant">Serie</a>
-      <a href="/o-mnie" class="mr-6 link-elegant">O mnie</a>
-
-      <div
-        class="flex items-center border-l border-gray-200 dark:border-slate-700 pl-6 ml-2"
+    <div class="flex items-center">
+      <nav
+        class="hidden md:flex flex-wrap items-center text-base font-medium mr-6"
       >
+        <a href="/nowosci" class="mr-6 link-elegant">Nowości</a>
+        <a href="/ksiazki" class="mr-6 link-elegant">Książki</a>
+        <a href="/serie" class="mr-6 link-elegant">Serie</a>
+        <a href="/o-mnie" class="mr-6 link-elegant">O mnie</a>
+      </nav>
+
+      <a
+        href="#newsletter"
+        class="hidden lg:inline-flex items-center justify-center btn-primary py-2! px-5! text-sm mr-6"
+      >
+        <BookOpen class="mr-2" size={16} />
+        Dla Ciebie
+      </a>
+
+      <div class="pl-6">
         <ThemeIcon />
       </div>
-    </nav>
+    </div>
+  </div>
 
-    <a
-      href="#newsletter"
-      class="mt-4 md:mt-0 inline-flex items-center justify-center btn-primary py-2! px-5! text-sm"
+  <div
+    class="md:hidden border-t border-gray-50 dark:border-slate-800/50 bg-gray-50/30 dark:bg-slate-900/20"
+  >
+    <nav
+      class="flex flex-wrap justify-center gap-x-6 gap-y-2 p-4 text-base font-medium"
     >
-      <BookOpen class="mr-2" size={16} />
-      Materiały dodatkowe
-    </a>
+      <a href="/nowosci" class="link-elegant">Nowości</a>
+      <a href="/ksiazki" class="link-elegant">Książki</a>
+      <a href="/serie" class="link-elegant">Serie</a>
+      <a href="/o-mnie" class="link-elegant">O mnie</a>
+    </nav>
   </div>
 </header>

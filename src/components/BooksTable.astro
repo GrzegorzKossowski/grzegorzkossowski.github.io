@@ -39,7 +39,7 @@ const allBooks = (await getCollection("books")).sort(
             >Strony</th
           >
           <th
-            class="py-5 px-6 text-[11px] uppercase tracking-[0.2em] font-bold opacity-60"
+            class="py-5 px-6 text-[11px] uppercase tracking-[0.2em] font-bold opacity-60 hidden sm:table-cell"
             >Cena</th
           >
           <th class="py-5 px-6"></th>
@@ -65,7 +65,7 @@ const allBooks = (await getCollection("books")).sort(
                 </td>
 
                 <td class="py-6 px-6">
-                  <div class="font-bold font-serif text-base md:text-lg text-gray-900 dark:text-white leading-tight line-clamp-2 max-w-[200px] md:max-w-md">
+                  <div class="font-bold font-serif text-base md:text-lg text-gray-900 dark:text-white leading-tight line-clamp-2 max-w-50 md:max-w-md">
                     {book.data.title}
                   </div>
                   <div class="md:hidden text-[10px] font-bold text-romance-600 dark:text-gold-500 mt-1 uppercase tracking-widest">
@@ -85,7 +85,7 @@ const allBooks = (await getCollection("books")).sort(
                   {book.data.pages}
                 </td>
 
-                <td class="py-6 px-6">
+                <td class="py-6 px-6 hidden sm:table-cell">
                   <span class="font-bold text-base text-romance-700 dark:text-gold-500 whitespace-nowrap">
                     {book.data.price ? `${book.data.price} zł` : "—"}
                   </span>

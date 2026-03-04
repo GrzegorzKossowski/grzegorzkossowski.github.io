@@ -1,16 +1,16 @@
 ---
+import { User } from "lucide-astro";
 interface Props {
-  title: string;
-  description: string;
-  image?: string;
+  title?: string;
+  description?: string;
 }
-const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
+const { title="Wasze wrażenia", description} = Astro.props;
 ---
 
 <section class="text-gray-600 body-font" id="testimonials">
   <div class="container px-5 py-24 mx-auto">
     <h1 class="text-3xl font-medium title-font text-gray-900 mb-12 text-center">
-      Testimonials
+      {title}
     </h1>
     <div class="flex flex-wrap -m-4">
       <div class="p-4 md:w-1/2 w-full">
@@ -26,24 +26,29 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
             ></path>
           </svg>
           <p class="leading-relaxed mb-6">
-            Synth chartreuse iPhone lomo cray raw denim brunch everyday carry
-            neutra before they sold out fixie 90's microdosing. Tacos pinterest
-            fanny pack venmo, post-ironic heirloom try-hard pabst authentic
-            iceland.
+            „Grunwald 1410. Szpieg przyszłości” to intrygujące połączenie
+            powieści historycznej z elementami science fiction. Autor przenosi
+            czytelnika w realia jednej z najważniejszych bitew w historii
+            Polski, dodając do niej motyw podróży w czasie i tajemniczego
+            szpiega z przyszłości. Już sam pomysł stanowi świeże i odważne
+            podejście do tematu...
           </p>
-          <a class="inline-flex items-center">
-            <img
-              alt="testimonial"
-              src="https://dummyimage.com/106x106"
-              class="w-12 h-12 rounded-full shrink-0 object-cover object-center"
-            />
+          <div class="inline-flex items-center">
+            <div
+              class="w-12 h-12 rounded-full shrink-0 bg-romance-100 dark:bg-romance-900/30 text-romance-600 dark:text-romance-400 flex items-center justify-center border border-romance-200 dark:border-romance-800/50"
+            >
+              <User size={24} />
+            </div>
             <span class="grow flex flex-col pl-4">
-              <span class="title-font font-medium text-gray-900"
-                >Holden Caulfield</span
+              <span class="title-font font-bold text-gray-900 dark:text-white"
+                >Katarzyna</span
               >
-              <span class="text-gray-500 text-sm">UI DEVELOPER</span>
+              <span
+                class="text-gray-500 dark:text-gray-400 text-xs tracking-widest uppercase font-medium"
+                >Czytelniczka</span
+              >
             </span>
-          </a>
+          </div>
         </div>
       </div>
       <div class="p-4 md:w-1/2 w-full">
@@ -59,24 +64,29 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
             ></path>
           </svg>
           <p class="leading-relaxed mb-6">
-            Synth chartreuse iPhone lomo cray raw denim brunch everyday carry
-            neutra before they sold out fixie 90's microdosing. Tacos pinterest
-            fanny pack venmo, post-ironic heirloom try-hard pabst authentic
-            iceland.
+            „Warsaw Z. Warszawska Apokalipsa” to dynamiczny thriller osadzony w
+            realiach ogarniętej chaosem Warszawy. Autor sięga po motyw
+            apokalipsy zombie, przenosząc go na dobrze znany, lokalny grunt, co
+            nadaje historii świeżości i dodatkowego napięcia. Zestawienie
+            kultowych miejsc stolicy z brutalną walką o przetrwanie tworzy
+            sugestywny i momentami mroczny klimat.
           </p>
-          <a class="inline-flex items-center">
-            <img
-              alt="testimonial"
-              src="https://dummyimage.com/107x107"
-              class="w-12 h-12 rounded-full shrink-0 object-cover object-center"
-            />
+          <div class="inline-flex items-center">
+            <div
+              class="w-12 h-12 rounded-full shrink-0 bg-romance-100 dark:bg-romance-900/30 text-romance-600 dark:text-romance-400 flex items-center justify-center border border-romance-200 dark:border-romance-800/50"
+            >
+              <User size={24} />
+            </div>
             <span class="grow flex flex-col pl-4">
-              <span class="title-font font-medium text-gray-900"
-                >Alper Kamu</span
+              <span class="title-font font-bold text-gray-900 dark:text-white"
+                >Katarzyna</span
               >
-              <span class="text-gray-500 text-sm">DESIGNER</span>
+              <span
+                class="text-gray-500 dark:text-gray-400 text-xs tracking-widest uppercase font-medium"
+                >Czytelniczka</span
+              >
             </span>
-          </a>
+          </div>
         </div>
       </div>
     </div>
