@@ -2,8 +2,9 @@
 import BaseMeta from "../components/BaseMeta.astro";
 import Footer from "../components/Footer.astro";
 import Navigation from "../components/Navigation.astro";
-import ScrollToTop from '../components/ScrollToTop.astro';
-import '../styles/global.css';
+import ScrollToTop from "../components/ScrollToTop.astro";
+import { ClientRouter } from "astro:transitions";
+import "../styles/global.css";
 const { title } = Astro.props;
 ---
 
@@ -12,10 +13,11 @@ const { title } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <BaseMeta title={title} description="Some description" />
+    <ClientRouter />
   </head>
   <body>
     <ScrollToTop />
-    <Navigation title={title} description="Some description" firstName="Grzegorz" lastName="Kossowski" />
+    <Navigation firstName="Grzegorz" lastName="Kossowski" />
     <article>
       <slot />
     </article>
