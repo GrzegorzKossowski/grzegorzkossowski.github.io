@@ -1,0 +1,93 @@
+{
+  "$ref": "#/definitions/books",
+  "definitions": {
+    "books": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "romans",
+            "romantasy",
+            "fantastyka",
+            "erotyka",
+            "sf",
+            "poradniki",
+            "kryminał",
+            "sensacja",
+            "thriller",
+            "poezja",
+            "dziecięca",
+            "inne"
+          ]
+        },
+        "cover": {
+          "type": "string"
+        },
+        "publishDate": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "integer",
+              "format": "unix-time"
+            }
+          ]
+        },
+        "buyUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "author": {
+          "type": "string",
+          "default": "Grzegorz Kossowski"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "series": {
+          "type": "string"
+        },
+        "seriesOrder": {
+          "type": "number"
+        },
+        "isbn": {
+          "type": "string"
+        },
+        "pages": {
+          "type": "number"
+        },
+        "format": {
+          "type": "string",
+          "default": "Ebook (EPUB, MOBI)"
+        },
+        "language": {
+          "type": "string",
+          "default": "polski"
+        },
+        "price": {
+          "type": "number"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "category",
+        "publishDate"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
