@@ -16,22 +16,20 @@ const {
 >
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-12">
-      <h1
-        class="sm:text-4xl text-3xl font-bold title-font mb-4 text-gray-900 dark:text-white font-serif"
-      >
+      <h1 class="sm:text-4xl text-3xl font-bold title-font mb-4 text-gray-900 dark:text-white font-serif">
         {title}
       </h1>
-      <p
-        class="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-500 dark:text-gray-400"
-      >
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-500 dark:text-gray-400">
         {description}
       </p>
     </div>
 
+    {/* Formularz: flex-wrap pozwala elementom zjeżdżać niżej, gdy brakuje miejsca */}
     <form
-      class="flex lg:w-3/4 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end justify-center"
+      class="flex flex-wrap lg:w-3/4 w-full mx-auto px-4 sm:px-0 gap-4 items-end justify-center"
     >
-      <div class="relative grow w-full max-w-sm">
+      {/* Imię - pełna szerokość na małych, połowa na średnich, autostack powyżej */}
+      <div class="flex-1 min-w-[280px] w-full">
         <label
           for="full-name"
           class="leading-7 text-sm text-gray-600 dark:text-gray-400 font-medium"
@@ -42,10 +40,12 @@ const {
           id="full-name"
           name="fields[name]"
           placeholder="Twoje imię..."
-          class="w-full bg-gray-100 dark:bg-slate-900 bg-opacity-50 rounded-lg border border-gray-300 dark:border-slate-800 focus:border-romance-500 focus:bg-transparent focus:ring-2 focus:ring-romance-200 dark:focus:ring-romance-900/30 text-base outline-none text-gray-700 dark:text-white py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+          class="w-full bg-gray-100 dark:bg-slate-900 bg-opacity-50 rounded-lg border border-gray-300 dark:border-slate-800 focus:border-romance-500 focus:bg-transparent focus:ring-2 focus:ring-romance-200 dark:focus:ring-romance-900/30 text-base outline-none text-gray-700 dark:text-white py-1.5 px-3 leading-8 transition-colors duration-200 ease-in-out"
         />
       </div>
-      <div class="relative grow w-full max-w-sm">
+
+      {/* Email - podobnie jak imię */}
+      <div class="flex-1 min-w-[280px] w-full">
         <label
           for="email"
           class="leading-7 text-sm text-gray-600 dark:text-gray-400 font-medium"
@@ -57,29 +57,29 @@ const {
           name="email"
           placeholder="twoj@email.pl"
           required
-          class="w-full bg-gray-100 dark:bg-slate-900 bg-opacity-50 rounded-lg border border-gray-300 dark:border-slate-800 focus:border-romance-500 focus:bg-transparent focus:ring-2 focus:ring-romance-200 dark:focus:ring-romance-900/30 text-base outline-none text-gray-700 dark:text-white py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+          class="w-full bg-gray-100 dark:bg-slate-900 bg-opacity-50 rounded-lg border border-gray-300 dark:border-slate-800 focus:border-romance-500 focus:bg-transparent focus:ring-2 focus:ring-romance-200 dark:focus:ring-romance-900/30 text-base outline-none text-gray-700 dark:text-white py-1.5 px-3 leading-8 transition-colors duration-200 ease-in-out"
         />
       </div>
+
+      {/* Button - whitespace-nowrap blokuje zawijanie, w-full na mobile */}
       <button
         id="submit-btn"
         disabled
-        class="text-white bg-romance-600 border-0 py-2 px-8 focus:outline-none hover:bg-romance-500 rounded-lg text-lg font-bold flex items-center shadow-lg shadow-romance-600/20 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:grayscale"
+        class="w-full md:w-auto whitespace-nowrap text-white bg-romance-600 border-0 py-2.5 px-8 focus:outline-none hover:bg-romance-500 rounded-lg text-lg font-bold flex items-center justify-center shadow-lg shadow-romance-600/20 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:grayscale"
       >
-        <Send size={18} class="mr-2" />
-        Zapisuję się
+        <Send size={18} class="mr-2 shrink-0" />
+        <span>Zapisuję się</span>
       </button>
     </form>
 
-    <div class="lg:w-3/4 w-full mx-auto mt-6 px-8 sm:px-0 text-left">
+    <div class="lg:w-3/4 w-full mx-auto mt-6 px-4 sm:px-0 text-left">
       <label class="flex items-start cursor-pointer group">
         <input
           type="checkbox"
           id="privacy-checkbox"
           class="mt-1 rounded border-gray-300 dark:border-slate-800 text-romance-600 focus:ring-romance-500"
         />
-        <span
-          class="ml-3 text-xs text-gray-500 dark:text-gray-400 leading-relaxed"
-        >
+        <span class="ml-3 text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
           Akceptuję <a
             href="/polityka"
             class="underline hover:text-romance-600 transition-colors"
@@ -92,14 +92,9 @@ const {
 </section>
 
 <script>
-  // Używamy document.addEventListener, aby skrypt działał poprawnie z View Transitions w Astro
   document.addEventListener("astro:page-load", () => {
-    const checkbox = document.getElementById(
-      "privacy-checkbox",
-    ) as HTMLInputElement;
-    const submitBtn = document.getElementById(
-      "submit-btn",
-    ) as HTMLButtonElement;
+    const checkbox = document.getElementById("privacy-checkbox") as HTMLInputElement;
+    const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement;
 
     if (checkbox && submitBtn) {
       checkbox.addEventListener("change", () => {

@@ -1,26 +1,77 @@
-<div id="cookie-banner" class="fixed bottom-4 left-4 right-4 md:right-auto md:max-w-md bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 p-6 rounded-2xl shadow-2xl z-100 transform translate-y-20 opacity-0 transition-all duration-500">
+<div
+  id="cookie-banner"
+  class="fixed bottom-4 left-4 right-4 md:right-auto md:max-w-md bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 p-6 rounded-2xl shadow-2xl z-100 transform translate-y-20 opacity-0 transition-all duration-500"
+>
   <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
-    Ta strona używa plików cookies, aby zapewnić Ci jak najlepsze wrażenia. Szczegóły znajdziesz w 
-    <a href="/polityka" class="text-romance-600 underline">Polityce Prywatności</a>.
+    Ta strona używa plików cookies, aby zapewnić Ci jak najlepsze wrażenia.
+    Szczegóły znajdziesz w
+    <a href="/polityka" class="text-romance-600 underline"
+      >Polityce Prywatności</a
+    >.
   </p>
-  <button id="accept-cookies" class="w-full bg-romance-600 hover:bg-romance-500 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+  <button
+    id="accept-cookies"
+    class="w-full bg-romance-600 hover:bg-romance-500 text-white font-bold py-2 px-4 rounded-lg transition-colors"
+  >
     Rozumiem
   </button>
 </div>
 
 <script>
-  const banner = document.getElementById('cookie-banner');
-  const btn = document.getElementById('accept-cookies');
+  const initCookies = () => {
+    const banner = document.getElementById("cookie-banner");
+    const btn = document.getElementById("accept-cookies");
+    const EXPIRATION_DAYS = 30;
 
-  // Sprawdź czy użytkownik już zaakceptował cookies
-  if (!localStorage.getItem('cookies-accepted')) {
-    setTimeout(() => {
-      banner?.classList.remove('translate-y-20', 'opacity-0');
-    }, 1000);
-  }
+    if (!banner || !btn) return;
 
-  btn?.addEventListener('click', () => {
-    localStorage.setItem('cookies-accepted', 'true');
-    banner?.classList.add('translate-y-20', 'opacity-0');
-  });
+    // Funkcja weryfikująca ważność zgody
+    const hasValidConsent = () => {
+      const consent = localStorage.getItem("cookies-accepted");
+      if (!consent) return false;
+
+      try {
+        const data = JSON.parse(consent);
+        const now = new Date().getTime();
+
+        if (now > data.expiry) {
+          localStorage.removeItem("cookies-accepted");
+          return false;
+        }
+        return true;
+      } catch (e) {
+        // Jeśli w localStorage był stary format (prosty string), usuń go
+        localStorage.removeItem("cookies-accepted");
+        return false;
+      }
+    };
+
+    // Logika wyświetlania
+    if (!hasValidConsent()) {
+      // Pokaż baner z opóźnieniem, jeśli brak zgody
+      setTimeout(() => {
+        banner.classList.remove("translate-y-20", "opacity-0", "hidden");
+      }, 1000);
+    } else {
+      // Jeśli zgoda jest, upewnij się, że baner jest ukryty (ważne przy nawigacji)
+      banner.classList.add("hidden");
+    }
+
+    // Obsługa kliknięcia
+    btn.addEventListener("click", () => {
+      const now = new Date();
+      const item = {
+        value: "true",
+        expiry: now.getTime() + EXPIRATION_DAYS * 24 * 60 * 60 * 1000,
+      };
+      localStorage.setItem("cookies-accepted", JSON.stringify(item));
+
+      // Animacja wyjścia
+      banner.classList.add("translate-y-20", "opacity-0");
+      setTimeout(() => banner.classList.add("hidden"), 500);
+    });
+  };
+
+  // Uruchamiaj przy każdym załadowaniu komponentu i zmianie podstrony
+  document.addEventListener("astro:page-load", initCookies);
 </script>

@@ -1,7 +1,4 @@
 ---
-// Welcome to Astro! Everything between these triple-dash code fences
-// is your "component frontmatter". It never runs in the browser.
-console.log("This runs in your terminal, not the browser!");
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import Feature from "../components/Feature.astro";
@@ -9,7 +6,7 @@ import Testimonials from "../components/Testimonials.astro";
 import NewsLetter from "../components/Newsletter.astro";
 import { ShoppingBag, BookOpen } from "lucide-astro";
 import LatestBooks from "../components/LatestBooks.astro";
-import Newsletter from "../components/Newsletter.astro";
+// console.log("This runs in your terminal, not the browser!");
 ---
 
 <Layout title="Home Page">
@@ -28,7 +25,10 @@ import Newsletter from "../components/Newsletter.astro";
     </Fragment>
 
     <Fragment slot="buttons">
-      <a href="https://www.empik.com/..." class="btn-primary">
+      <a
+        href="https://www.empik.com/szukaj/produkt?q=kossowski%20grzegorz&qtype=basicForm&ac=true&sort=publishDesc"
+        class="btn-primary"
+      >
         <ShoppingBag class="mr-2" size={22} /> Książki w Empik
       </a>
       <a href="#newsletter" class="btn-secondary">
@@ -49,5 +49,4 @@ import Newsletter from "../components/Newsletter.astro";
     description="This is a description of the feature section."
   />
   <Testimonials title="Wasze wrażenia" />
-  <Newsletter />
 </Layout>

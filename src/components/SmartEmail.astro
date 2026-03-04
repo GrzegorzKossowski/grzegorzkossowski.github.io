@@ -1,0 +1,40 @@
+---
+// src/components/ui/SmartEmail.astro
+interface Props {
+  user: string;
+  domain: string;
+  label?: string;
+}
+const { user, domain, label } = Astro.props;
+---
+
+<a 
+  href="#" 
+  id="protected-email"
+  data-user={user}
+  data-domain={domain}
+  class="text-romance-600 dark:text-gold-500 hover:underline cursor-pointer"
+>
+  {label || "Wyślij wiadomość"}
+</a>
+
+<script>
+  const setupEmail = () => {
+    const mailLink = document.getElementById('protected-email') as HTMLAnchorElement;
+    if (!mailLink) return;
+
+    const u = mailLink.dataset.user;
+    const d = mailLink.dataset.domain;
+    
+    if (u && d) {
+      const fullEmail = `${u}@${d}`;
+      mailLink.href = `mailto:${fullEmail}`;
+      // Jeśli nie podałeś labela, wstaw e-mail jako tekst po załadowaniu
+      if (mailLink.innerText === "Wyślij wiadomość") {
+         // Opcjonalne: mailLink.innerText = fullEmail;
+      }
+    }
+  };
+
+  document.addEventListener('astro:page-load', setupEmail);
+</script>

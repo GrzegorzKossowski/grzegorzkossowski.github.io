@@ -1,0 +1,22 @@
+---
+// src/components/ui/Badge.astro
+interface Props {
+  isFuture: boolean;
+}
+
+const { isFuture } = Astro.props;
+
+// Definiujemy style w zależności od typu
+const badgeStyles = isFuture 
+  ? "bg-gold-500 text-ink-dark shadow-gold-500/20" 
+  : "bg-romance-600 text-white shadow-romance-600/20";
+
+const label = isFuture ? "Zapowiedź" : "Nowość";
+---
+
+<span class:list={[
+  "absolute top-3 right-3 text-[9px] font-bold px-2 py-1 rounded uppercase tracking-[0.15em] z-10 shadow-lg transition-transform hover:scale-105",
+  badgeStyles
+]}>
+  {label}
+</span>

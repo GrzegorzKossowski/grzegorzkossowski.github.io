@@ -6,6 +6,12 @@ interface Props {
   lastName?: string;
 }
 const { firstName, lastName } = Astro.props;
+const navLinks = [
+  { href: "/nowosci", label: "Nowości" },
+  { href: "/ksiazki", label: "Książki" },
+  { href: "/serie", label: "Serie" },
+  { href: "/o-mnie", label: "O mnie" },
+];
 ---
 
 <header
@@ -33,10 +39,13 @@ const { firstName, lastName } = Astro.props;
       <nav
         class="hidden md:flex flex-wrap items-center text-base font-medium mr-6"
       >
-        <a href="/nowosci" class="mr-6 link-elegant">Nowości</a>
-        <a href="/ksiazki" class="mr-6 link-elegant">Książki</a>
-        <a href="/serie" class="mr-6 link-elegant">Serie</a>
-        <a href="/o-mnie" class="mr-6 link-elegant">O mnie</a>
+        {
+          navLinks.map((link) => (
+            <a href={link.href} class="mr-6 link-elegant">
+              {link.label}
+            </a>
+          ))
+        }
       </nav>
 
       <a
@@ -59,10 +68,13 @@ const { firstName, lastName } = Astro.props;
     <nav
       class="flex flex-wrap justify-center gap-x-6 gap-y-2 p-4 text-base font-medium"
     >
-      <a href="/nowosci" class="link-elegant">Nowości</a>
-      <a href="/ksiazki" class="link-elegant">Książki</a>
-      <a href="/serie" class="link-elegant">Serie</a>
-      <a href="/o-mnie" class="link-elegant">O mnie</a>
+      {
+        navLinks.map((link) => (
+          <a href={link.href} class="mr-6 link-elegant">
+            {link.label}
+          </a>
+        ))
+      }
     </nav>
   </div>
 </header>

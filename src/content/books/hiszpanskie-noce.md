@@ -1,6 +1,6 @@
 ---
 title: "Hiszpańskie Noce. Zakazana Namiętność"
-category: "romans"
+category: "erotyka"
 cover: "../../assets/covers/hiszpanskie-noce.jpg"
 publishDate: 2026-03-06
 # isNew: true

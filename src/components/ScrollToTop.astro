@@ -1,5 +1,5 @@
 ---
-import { ChevronUp } from 'lucide-astro';
+import { ChevronUp } from "lucide-astro";
 ---
 
 <button
@@ -11,29 +11,45 @@ import { ChevronUp } from 'lucide-astro';
 </button>
 
 <script>
-  const scrollBtn = document.getElementById("scrollToTop");
+  const initScroll = () => {
+    const scrollBtn = document.getElementById("scrollToTop");
+    if (!scrollBtn) return;
 
-  const handleScroll = () => {
-    if (window.scrollY > 300) {
-      // Pokazuje przycisk: wraca na miejsce i staje się widoczny
-      scrollBtn?.classList.remove("translate-y-20", "opacity-0");
-      scrollBtn?.classList.add("translate-y-0", "opacity-100");
-    } else {
-      // Chowa przycisk: ucieka w dół i znika
-      scrollBtn?.classList.add("translate-y-20", "opacity-0");
-      scrollBtn?.classList.remove("translate-y-0", "opacity-100");
-    }
-  };
+    const handleScroll = () => {
+      const y = window.scrollY || document.documentElement.scrollTop;
+      if (y > 300) {
+        scrollBtn.classList.remove(
+          "translate-y-20",
+          "opacity-0",
+          "pointer-events-none",
+        );
+        scrollBtn.classList.add(
+          "translate-y-0",
+          "opacity-100",
+          "pointer-events-auto",
+        );
+      } else {
+        scrollBtn.classList.add(
+          "translate-y-20",
+          "opacity-0",
+          "pointer-events-none",
+        );
+        scrollBtn.classList.remove(
+          "translate-y-0",
+          "opacity-100",
+          "pointer-events-auto",
+        );
+      }
+    };
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
+    window.addEventListener("scroll", handleScroll);
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   };
 
-  window.addEventListener("scroll", handleScroll);
-  scrollBtn?.addEventListener("click", scrollToTop);
+  // To uruchamia skrypt przy każdym przejściu strony
+  document.addEventListener("astro:page-load", initScroll);
 </script>
 
 <style>

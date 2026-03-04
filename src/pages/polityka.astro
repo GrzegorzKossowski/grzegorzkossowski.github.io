@@ -1,6 +1,6 @@
 ---
+import SmartEmail from "../components/SmartEmail.astro";
 import Layout from "../layouts/Layout.astro";
-
 interface Props {
   firstName: string;
   lastName:string;
@@ -11,13 +11,13 @@ const {
 } = Astro.props;
 ---
 
-<Layout title="Polityka Prywatności">
+<Layout title="Polityka Prywatności" showNewsletter={false}>
   <section class="py-24 bg-white dark:bg-slate-950">
     <div class="container mx-auto px-5 max-w-3xl text-gray-700 dark:text-gray-300 leading-relaxed">
       <h1 class="text-4xl font-bold mb-8 text-gray-900 dark:text-white font-serif">Polityka Prywatności</h1>
       
       <h2 class="text-xl font-bold mt-8 mb-4 text-gray-900 dark:text-white">1. Informacje ogólne</h2>
-      <p>Administratorem danych osobowych zbieranych za pośrednictwem strony jest Grzegorz Kossowski z siedzibą w Warszawie. Możesz się ze mną skontaktować pod adresem: grzegorz.kossowski@gmail.com.</p>
+      <p>Administratorem danych osobowych zbieranych za pośrednictwem strony jest Grzegorz Kossowski z siedzibą w Warszawie. Możesz się ze mną skontaktować <SmartEmail user="grzegorz.kossowski" domain="gmail.com" label="za pomocą maila" />.</p>
 
       <h2 class="text-xl font-bold mt-8 mb-4 text-gray-900 dark:text-white">2. Jakie dane zbieram?</h2>
       <p>Zbieram dane, które dobrowolnie podajesz w formularzu newslettera: imię oraz adres e-mail. Strona korzysta również z plików cookies w celach statystycznych (np. Google Analytics) oraz technicznych.</p>
