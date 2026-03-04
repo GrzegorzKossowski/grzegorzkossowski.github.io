@@ -1,28 +1,48 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import { slugify } from "../../utils/slugify";
+import { initialCap } from "../../utils/initialCap";
 
 export async function getStaticPaths() {
-  const allBooks = await getCollection('books');
-  const categories = [...new Set(allBooks.map(b => b.data.category))];
-  return categories.map(cat => ({
-    params: { category: cat },
-    props: { books: allBooks.filter(b => b.data.category === cat) }
+  const allBooks = await getCollection("books");
+
+  // Wyciągamy unikalne kategorie z Twoich plików Markdown
+  const uniqueCategories = [
+    ...new Set(allBooks.map((book) => book.data.category || "inne")),
+  ];
+
+  return uniqueCategories.map((cat) => ({
+    params: { category: slugify(cat) }, // slug w URL
+    props: {
+      categoryName: cat, // Oryginalna nazwa (np. "Romantasy")
+      books: allBooks.filter((book) => book.data.category === cat),
+    },
   }));
 }
-const { category } = Astro.params;
-const { books } = Astro.props;
+
+const { books, categoryName } = Astro.props;
 ---
-<Layout title={`Gatunek: ${category}`}>
-  <section class="py-24 container mx-auto px-5">
-    <h1 class="text-h1 mb-12 capitalize">{category}</h1>
-    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
-      {books.map(book => (
-        <a href={`/ksiazki/${book.slug}`} class="group">
-          <div class="overflow-hidden rounded-xl aspect-5/7 mb-4 shadow-lg"><img src={book.data.cover.src} class="group-hover:scale-105 transition-transform duration-500" /></div>
-          <h3 class="font-serif font-bold text-lg">{book.data.title}</h3>
-        </a>
-      ))}
+
+<Layout title={`Kategoria: ${categoryName}`}>
+  <section class="container mx-auto py-12 px-4">
+    <h1 class="text-h1 mb-12">
+      Książki z kategorii: <span class="text-romance-600"
+        >{initialCap(categoryName)}</span>
+    </h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        books.map((book) => (
+          // Tutaj możesz użyć swojego komponentu karty książki
+          <div class="border p-4 rounded-xl">
+            <h2 class="text-xl font-bold">{book.data.title}</h2>
+            <a href={`/ksiazki/${book.slug}`} class="btn-primary mt-4">
+              Zobacz szczegóły
+            </a>
+          </div>
+        ))
+      }
     </div>
   </section>
 </Layout>

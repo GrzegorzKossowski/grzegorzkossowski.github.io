@@ -74,9 +74,9 @@ const { Content } = await book.render();
             <div
               class="flex justify-between border-b border-gray-200 dark:border-slate-700 pb-2"
             >
-              <dt class="opacity-60">Wydawca:</dt>
+              <dt class="opacity-60">Seria:</dt>
               <dd class="text-gray-900 dark:text-white">
-                {book.data.publisher}
+                {book.data.series || "brak"}
               </dd>
             </div>
 

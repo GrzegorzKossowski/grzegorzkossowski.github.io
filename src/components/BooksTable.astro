@@ -5,13 +5,14 @@ import { Image } from "astro:assets";
 import placeholderCover from "../assets/covers/placeholder-cover.jpg";
 
 const allBooks = (await getCollection("books")).sort(
-  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
 );
 ---
 
-<section class="py-12 bg-white dark:bg-slate-950 transition-colors duration-500">
+<section
+  class="py-12 bg-white dark:bg-slate-950 transition-colors duration-500"
+>
   <div class="container mx-auto px-4 lg:px-8">
-    
     <div
       class="overflow-x-auto bg-white dark:bg-slate-900/40 rounded-2xl border border-gray-100 dark:border-slate-800 shadow-sm"
     >
@@ -20,24 +21,30 @@ const allBooks = (await getCollection("books")).sort(
           <tr
             class="border-b border-gray-200 dark:border-slate-700 bg-gray-50/50 dark:bg-slate-800/50"
           >
-            <th class="py-5 px-6 text-[11px] uppercase tracking-[0.2em] font-bold opacity-60">
-              Okładka
-            </th>
-            <th class="py-5 px-6 text-[11px] uppercase tracking-[0.2em] font-bold opacity-60">
-              Tytuł
-            </th>
-            <th class="py-5 px-6 text-[11px] uppercase tracking-[0.2em] font-bold opacity-60 hidden md:table-cell">
-              Gatunek
-            </th>
-            <th class="py-5 px-6 text-[11px] uppercase tracking-[0.2em] font-bold opacity-60 hidden lg:table-cell text-center">
-              Premiera
-            </th>
-            <th class="py-5 px-6 text-[11px] uppercase tracking-[0.2em] font-bold opacity-60 hidden xl:table-cell text-center">
-              Strony
-            </th>
-            <th class="py-5 px-6 text-[11px] uppercase tracking-[0.2em] font-bold opacity-60 hidden sm:table-cell">
-              Cena
-            </th>
+            <th
+              class="py-5 px-6 text-[11px] uppercase tracking-[0.2em] font-bold opacity-60"
+              >Okładka</th
+            >
+            <th
+              class="py-5 px-6 text-[11px] uppercase tracking-[0.2em] font-bold opacity-60"
+              >Tytuł</th
+            >
+            <th
+              class="py-5 px-6 text-[11px] uppercase tracking-[0.2em] font-bold opacity-60 hidden md:table-cell"
+              >Gatunek</th
+            >
+            <th
+              class="py-5 px-6 text-[11px] uppercase tracking-[0.2em] font-bold opacity-60 hidden lg:table-cell text-center"
+              >Premiera</th
+            >
+            <th
+              class="py-5 px-6 text-[11px] uppercase tracking-[0.2em] font-bold opacity-60 hidden xl:table-cell text-center"
+              >Strony</th
+            >
+            <th
+              class="py-5 px-6 text-[11px] uppercase tracking-[0.2em] font-bold opacity-60 hidden sm:table-cell"
+              >Cena</th
+            >
             <th class="py-5 px-6"></th>
           </tr>
         </thead>
@@ -47,7 +54,8 @@ const allBooks = (await getCollection("books")).sort(
               const coverImage = (book.data.cover || placeholderCover) as any;
 
               return (
-                <tr class="hover:bg-romance-50/30 dark:hover:bg-slate-800/40 transition-colors group">
+                /* 1. Dodajemy 'relative' do wiersza, aby link pozycjonował się względem niego */
+                <tr class="relative hover:bg-romance-50/50 dark:hover:bg-slate-800/60 transition-colors group cursor-pointer">
                   <td class="py-6 px-6 w-24">
                     <div class="w-16 h-22 overflow-hidden rounded-lg shadow-md bg-slate-100 dark:bg-slate-800 border border-gray-100 dark:border-slate-700">
                       <Image
@@ -62,7 +70,13 @@ const allBooks = (await getCollection("books")).sort(
 
                   <td class="py-6 px-6">
                     <div class="font-bold font-serif text-base md:text-lg text-gray-900 dark:text-white leading-tight line-clamp-2 max-w-50 md:max-w-md">
-                      {book.data.title}
+                      {/* 2. To jest nasz "magiczny" link. Klasa 'after:inset-0' rozciąga go na cały TR */}
+                      <a
+                        href={`/ksiazki/${book.slug}`}
+                        class="after:absolute after:inset-0 z-10"
+                      >
+                        {book.data.title}
+                      </a>
                     </div>
                     <div class="md:hidden text-[10px] font-bold text-romance-600 dark:text-gold-500 mt-1 uppercase tracking-widest">
                       {book.data.category}
@@ -88,15 +102,10 @@ const allBooks = (await getCollection("books")).sort(
                   </td>
 
                   <td class="py-6 px-6 text-right">
-                    <a
-                      href={`/ksiazki/${book.slug}`}
-                      class="link-elegant text-[10px] md:text-xs font-bold uppercase tracking-widest inline-flex items-center gap-2 group-hover:text-romance-600 dark:group-hover:text-gold-500 transition-all"
-                    >
-                      <span class="hidden md:inline">Szczegóły</span>
-                      <span class="md:hidden bg-romance-600 text-white p-2 rounded-full leading-none">
-                        →
-                      </span>
-                    </a>
+                    {/* 3. Strzałka zamiast tekstu "Szczegóły" dla lepszego UX */}
+                    <div class="text-romance-600 dark:text-gold-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
+                      <span class="text-xl">→</span>
+                    </div>
                   </td>
                 </tr>
               );

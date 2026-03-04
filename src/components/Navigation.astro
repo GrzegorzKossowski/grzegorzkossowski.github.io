@@ -1,6 +1,7 @@
 ---
 import ThemeIcon from "../components/ThemeIcon.astro";
 import { Book, BookOpen } from "lucide-astro";
+import { slugify } from "../utils/slugify";
 interface Props {
   firstName?: string;
   lastName?: string;

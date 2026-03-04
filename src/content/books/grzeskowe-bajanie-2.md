@@ -1,5 +1,7 @@
 ---
 title: "Grześkowe Bajanie. Tom 2"
+series: "Grześkowe Bajanie"
+seriesOrder: 2
 category: "sf"
 cover: "../../assets/covers/grzeskowe-bajanie-2.jpg"
 publishDate: 2024-01-06
@@ -17,4 +19,5 @@ price: 20.00
 Znane i nieznane bajki, które opowiadali nasi rodzice i ich rodzice. W nowej aranżacji. W drugim tomie czytelnicy poznają sześć ciekawych opowieści, m.in. historię chłopaka, który zbudował latający okręt dla króla, dwie opowieści o poszukiwaniu szczęścia oraz miłości, wreszcie o walce z biedą i Śmiercią.
 
 ### O czym jest ta książka?
+
 Znane i nieznane bajki, które opowiadali nasi rodzice i ich rodzice. W nowej aranżacji. W drugim tomie czytelnicy poznają sześć ciekawych opowieści, m.in. historię chłopaka, który zbudował latający okręt dla króla, dwie opowieści o poszukiwaniu szczęścia oraz miłości, wreszcie o walce z biedą i Śmiercią.

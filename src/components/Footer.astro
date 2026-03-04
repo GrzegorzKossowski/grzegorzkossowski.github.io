@@ -1,76 +1,127 @@
 ---
-import { Book, Instagram, Facebook, Twitter, Send } from 'lucide-astro';
+import { Book, Instagram, Facebook, Twitter, Send } from "lucide-astro";
 const currentYear = new Date().getFullYear();
 interface Props {
   firstName?: string;
   lastName?: string;
 }
 const { firstName, lastName } = Astro.props;
+const categories = [
+  { id: "romans", name: "Romans" },
+  { id: "romantasy", name: "Romantasy" },
+  { id: "fantastyka", name: "Fantastyka" },
+  { id: "erotyka", name: "Erotyka" },
+];
 ---
 
-<footer class="border-t border-gray-100 dark:border-slate-800 transition-colors duration-500">
-  <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-    
+<footer
+  class="border-t border-gray-100 dark:border-slate-800 transition-colors duration-500"
+>
+  <div
+    class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col"
+  >
     <div class="w-80 shrink-0 md:mx-0 mx-auto text-center md:text-left">
-      <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900 dark:text-white" href="/">
+      <a
+        class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900 dark:text-white"
+        href="/"
+      >
         <div class="p-2 bg-romance-600 rounded-lg text-white">
           <Book size={24} />
         </div>
         <span class="ml-3 text-2xl font-serif font-bold tracking-tight">
-          {firstName} <span class="text-romance-600 dark:text-gold-500">{lastName}</span>
+          {firstName}
+          <span class="text-romance-600 dark:text-gold-500">{lastName}</span>
         </span>
       </a>
       <p class="mt-4 text-base opacity-80 leading-relaxed">
-        Autorskie światy pełne namiętności i magii. Twoja brama do historii, o których nie da się zapomnieć.
+        Autorskie światy pełne namiętności i magii. Twoja brama do historii, o
+        których nie da się zapomnieć.
       </p>
     </div>
 
-    <div class="grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center justify-end">
-      
+    <div
+      class="grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center justify-end"
+    >
       <div class="lg:w-1/3 md:w-1/2 w-full px-4">
-        <h2 class="font-serif font-bold text-gray-900 dark:text-white tracking-widest text-sm mb-4 uppercase">
+        <h2
+          class="font-serif font-bold text-gray-900 dark:text-white tracking-widest text-sm mb-4 uppercase"
+        >
           Moje Światy
         </h2>
         <nav class="list-none mb-10 space-y-3">
-          <li><a href="/romans" class="link-elegant text-base">Romans</a></li>
-          <li><a href="/romantasy" class="link-elegant text-base">Romantasy</a></li>
-          <li><a href="/fantastyka" class="link-elegant text-base">Fantastyka</a></li>
-          <li><a href="/erotyka" class="link-elegant text-base">Erotyka</a></li>
+          {
+            categories.map((cat) => (
+              <li>
+                <a href={`/kategorie/${cat.id}`} class="link-elegant text-base">
+                  {cat.name}
+                </a>
+              </li>
+            ))
+          }
         </nav>
       </div>
 
       <div class="lg:w-1/3 md:w-1/2 w-full px-4">
-        <h2 class="font-serif font-bold text-gray-900 dark:text-white tracking-widest text-sm mb-4 uppercase">
+        <h2
+          class="font-serif font-bold text-gray-900 dark:text-white tracking-widest text-sm mb-4 uppercase"
+        >
           O Autorze
         </h2>
         <nav class="list-none mb-10 space-y-3">
-          <li><a href="/o-mnie" class="link-elegant text-base">Poznaj moją historię</a></li>
-          <li><a href="/dla-mediow" class="link-elegant text-base">Materiały prasowe</a></li>
-          <li><a href="/kontakt" class="link-elegant text-base">Współpraca</a></li>
-          <li><a href="/polityka" class="link-elegant text-base">Prywatność</a></li>
+          <li>
+            <a href="/o-mnie" class="link-elegant text-base"
+              >Poznaj moją historię</a>
+          </li>
+          <li>
+            <a href="/dla-mediow" class="link-elegant text-base"
+              >Materiały prasowe</a>
+          </li>
+          <li>
+            <a href="/kontakt" class="link-elegant text-base">Współpraca</a>
+          </li>
+          <li>
+            <a href="/polityka" class="link-elegant text-base">Prywatność</a>
+          </li>
         </nav>
       </div>
-
     </div>
   </div>
 
   <div class="bg-gray-50 dark:bg-slate-900/50 transition-colors duration-500">
-    <div class="container mx-auto py-6 px-5 flex flex-wrap flex-col sm:flex-row items-center">
+    <div
+      class="container mx-auto py-6 px-5 flex flex-wrap flex-col sm:flex-row items-center"
+    >
       <p class="text-sm opacity-70 text-center sm:text-left">
-        © {currentYear} {firstName} {lastName} — Wszelkie prawa zastrzeżone.
+        © {currentYear}
+        {firstName}
+        {lastName} — Wszelkie prawa zastrzeżone.
       </p>
-      
-      <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start gap-4 text-gray-600 dark:text-gray-400">
-        <a class="hover:text-romance-600 dark:hover:text-gold-500 transition-colors" href="#">
+
+      <span
+        class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start gap-4 text-gray-600 dark:text-gray-400"
+      >
+        <a
+          class="hover:text-romance-600 dark:hover:text-gold-500 transition-colors"
+          href="#"
+        >
           <Instagram size={20} />
         </a>
-        <a class="hover:text-romance-600 dark:hover:text-gold-500 transition-colors" href="#">
+        <a
+          class="hover:text-romance-600 dark:hover:text-gold-500 transition-colors"
+          href="#"
+        >
           <Facebook size={20} />
         </a>
-        <a class="hover:text-romance-600 dark:hover:text-gold-500 transition-colors" href="#">
+        <a
+          class="hover:text-romance-600 dark:hover:text-gold-500 transition-colors"
+          href="#"
+        >
           <Twitter size={20} />
         </a>
-        <a class="hover:text-romance-600 dark:hover:text-gold-500 transition-colors" href="#">
+        <a
+          class="hover:text-romance-600 dark:hover:text-gold-500 transition-colors"
+          href="#"
+        >
           <Send size={20} />
         </a>
       </span>

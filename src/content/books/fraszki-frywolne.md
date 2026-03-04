@@ -1,6 +1,6 @@
 ---
 title: "Fraszki frywolne"
-category: "poezja"
+category: "erotyka"
 cover: "../../assets/covers/fraszki-frywolne.jpg"
 publishDate: 2024-02-01
 # isNew: true

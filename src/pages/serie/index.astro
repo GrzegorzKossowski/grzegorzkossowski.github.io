@@ -1,0 +1,98 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import { initialCap } from "../../utils/initialCap";
+import Badge from "../../components/Badge.astro";
+import placeholderCover from "../../assets/covers/placeholder-cover.jpg";
+
+const allBooks = await getCollection("books");
+
+// 1. Filtrowanie i grupowanie
+const booksWithSeries = allBooks.filter((book) => book.data.series);
+
+const groupedSeries = booksWithSeries.reduce(
+  (acc, book) => {
+    const seriesName = book.data.series!;
+    if (!acc[seriesName]) {
+      acc[seriesName] = [];
+    }
+    acc[seriesName].push(book);
+    return acc;
+  },
+  {} as Record<string, typeof allBooks>,
+);
+
+// 2. Sortowanie tomów
+Object.values(groupedSeries).forEach((seriesBooks) => {
+  seriesBooks.sort(
+    (a, b) => (a.data.seriesOrder || 0) - (b.data.seriesOrder || 0),
+  );
+});
+
+const seriesNames = Object.keys(groupedSeries).sort();
+const now = new Date();
+const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000;
+---
+
+<Layout title="Serie wydawnicze">
+  <section class="container mx-auto px-5 py-24">
+    <h1 class="text-h1">
+      Moje <span class="text-romance-600">Cykle i Serie</span>
+    </h1>
+
+    <div class="space-y-20">
+      {
+        seriesNames.map((name) => (
+          <div class="series-group">
+            <div class="flex items-center gap-4 mb-8">
+              <h2 class="text-2xl md:text-3xl font-serif font-bold text-gray-900 dark:text-white">
+                Seria "{initialCap(name)}"
+              </h2>
+              <div class="h-px bg-gray-200 dark:bg-slate-800 grow" />
+              <span class="text-sm font-mono opacity-50">
+                {groupedSeries[name].length} tomy
+              </span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {groupedSeries[name].map((book) => {
+                // TUTAJ: Musisz otworzyć klamrę, aby móc definiować stałe
+                const isFuture = book.data.publishDate > now;
+                const isRecent = now.getTime() - book.data.publishDate.getTime() < THIRTY_DAYS_MS;
+                const showBadge = isFuture || isRecent;
+                const coverImage = (book.data.cover || placeholderCover) as any;
+
+                return (
+                  <div class="group">
+                    <a href={`/ksiazki/${book.slug}`} class="block relative mb-4 overflow-hidden rounded-xl aspect-3/4 shadow-md bg-slate-100 dark:bg-slate-800">
+                      <Image
+                        src={coverImage}
+                        alt={book.data.title}
+                        width={400}
+                        height={560}
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      {showBadge && <Badge isFuture={isFuture} />}
+                    </a>
+                    
+                    <a href={`/ksiazki/${book.slug}`} class="block group-hover:text-romance-600 transition-colors">
+                      <h3 class="font-bold text-sm leading-tight">
+                        {book.data.seriesOrder && (
+                          <span class="text-romance-500 mr-1">
+                            T{book.data.seriesOrder}.
+                          </span>
+                        )}
+                        {book.data.title}
+                      </h3>
+                    </a>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

@@ -1,6 +1,6 @@
 ---
 title: "Grunwald 1410. Szpieg przyszłości"
-category: "sf"
+category: "fantastyka"
 cover: "../../assets/covers/grunwald-1410.jpg"
 publishDate: 2026-02-13
 # isNew: true

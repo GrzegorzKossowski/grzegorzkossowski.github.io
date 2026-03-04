@@ -54,6 +54,12 @@
         "publisher": {
           "type": "string"
         },
+        "series": {
+          "type": "string"
+        },
+        "seriesOrder": {
+          "type": "number"
+        },
         "isbn": {
           "type": "string"
         },
