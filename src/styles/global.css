@@ -5,7 +5,6 @@
   --font-serif: "Playfair Display", serif;
   --font-sans: "Lora", serif;
 
-  /* PRZYWRACAMY STANDARD: base to teraz 16px (1rem) */
   --font-size-base: 1rem;
 
   /* --- PALETA BAZOWA --- */
@@ -30,13 +29,13 @@
 @layer base {
   .dark {
     --color-page-bg: #020617;
-    --color-page-text: #e2e8f0;
+    /* Zwiększona jasność: z e2e8f0 na f8fafc (Slate 50) */
+    --color-page-text: #f8fafc;
     --color-btn-secondary-border: var(--color-gold-500);
     --color-btn-secondary-text: var(--color-gold-500);
   }
 
   html {
-    /* Standardowa baza 16px zapobiega rozjeżdżaniu się layoutu na mobile */
     font-size: 16px;
     scroll-behavior: smooth;
     @apply antialiased;
@@ -44,43 +43,47 @@
 
   body {
     font-family: var(--font-sans);
-    line-height: 1.5; /* Standardowa interlinia */
+    line-height: 1.6; /* Lekko zwiększona interlinia dla czytelności szeryfów */
     background-color: var(--color-page-bg);
     color: var(--color-page-text);
-    /* Zapobiegamy poziomemu scrollowi na poziomie body */
-    @apply overflow-x-hidden bg-white text-gray-900 dark:bg-slate-950 dark:text-gray-100;
+    @apply overflow-x-hidden;
+
+    /* Usunięto nadpisujące klasy text-gray, teraz body ufa zmiennym --color-page-text */
   }
 
-  /* Hierarchia nagłówków - zredukowana na mobile */
+  h1,
+  .text-h1,
+  h2,
+  .text-h2,
+  h3,
+  .text-h3 {
+    font-family: var(--font-serif);
+    /* Nagłówki w dark mode mogą być czysto białe */
+    @apply text-gray-900 dark:text-white;
+  }
+
   h1,
   .text-h1 {
-    font-family: var(--font-serif);
     @apply text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6;
     line-height: 1.1;
   }
 
   h2,
   .text-h2 {
-    font-family: var(--font-serif);
     @apply text-2xl md:text-3xl lg:text-4xl font-semibold mb-4;
   }
 
-  h3,
-  .text-h3 {
-    font-family: var(--font-serif);
-    @apply text-xl md:text-2xl font-semibold mb-3;
-  }
-
   p {
-    @apply mb-4 opacity-90 text-base; /* text-base to teraz bezpieczne 16px */
+    /* Usunięto opacity-90 - tekst jest teraz w 100% wyraźny */
+    @apply mb-4 text-base;
   }
 
-  /* Fix dla tabel i kontenerów - wymuszamy by nie wystawały */
   .container {
     @apply px-4 mx-auto max-w-7xl overflow-hidden;
   }
 }
 
+/* Reszta stylów (components) pozostaje bez zmian */
 @layer components {
   .btn-primary {
     @apply inline-flex items-center justify-center px-6 py-2.5 rounded-full font-semibold transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 text-sm md:text-base;

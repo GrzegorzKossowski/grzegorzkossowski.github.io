@@ -4,6 +4,7 @@ import Footer from "../components/Footer.astro";
 import Navigation from "../components/Navigation.astro";
 import ScrollToTop from "../components/ScrollToTop.astro";
 import { ClientRouter } from "astro:transitions";
+import CookieBanner from "../components/CookieBanner.astro";
 import "../styles/global.css";
 const { title } = Astro.props;
 ---
@@ -13,7 +14,7 @@ const { title } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <BaseMeta title={title} description="Some description" />
-    <!-- <ClientRouter /> -->
+    <ClientRouter />
   </head>
   <body>
     <ScrollToTop />
@@ -22,7 +23,9 @@ const { title } = Astro.props;
       <slot />
     </article>
     <Footer firstName="Grzegorz" lastName="Kossowski" />
-  </body><style>
+    <CookieBanner />
+  </body>
+  <style>
     h1 {
       font-size: 2rem;
     }

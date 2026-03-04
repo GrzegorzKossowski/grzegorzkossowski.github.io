@@ -4,12 +4,12 @@
 console.log("This runs in your terminal, not the browser!");
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
-import Ecommerce from "../components/Ecommerce.astro";
 import Feature from "../components/Feature.astro";
 import Testimonials from "../components/Testimonials.astro";
 import NewsLetter from "../components/Newsletter.astro";
 import { ShoppingBag, BookOpen } from "lucide-astro";
 import LatestBooks from "../components/LatestBooks.astro";
+import Newsletter from "../components/Newsletter.astro";
 ---
 
 <Layout title="Home Page">
@@ -49,4 +49,5 @@ import LatestBooks from "../components/LatestBooks.astro";
     description="This is a description of the feature section."
   />
   <Testimonials title="Wasze wrażenia" />
+  <Newsletter />
 </Layout>

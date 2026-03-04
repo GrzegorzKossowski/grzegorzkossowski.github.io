@@ -37,27 +37,16 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 />
 <link rel="sitemap" href="/sitemap-index.xml" />
 <script is:inline>
-  const savedTheme = localStorage.getItem('theme');
-  // Jeśli nie ma nic w pamięci, daj dark. Jeśli jest, użyj zapisanego.
-  const theme = savedTheme || 'dark'; 
-  document.documentElement.classList.toggle('dark', theme === 'dark');
+  const savedTheme = localStorage.getItem("theme");
+  // ZMIANA: Jeśli nie ma nic w pamięci (null), wybierz 'light'.
+  const theme = savedTheme || "light";
+
+  // Aplikuje klasę 'dark' tylko jeśli theme to 'dark'
+  document.documentElement.classList.toggle("dark", theme === "dark");
+
+  // Opcjonalnie: zapisz od razu 'light', żeby stan był spójny
+  if (!savedTheme) {
+    localStorage.setItem("theme", "light");
+  }
 </script>
 
-<!-- <script is:inline>
-  const theme = (() => {
-    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-      return localStorage.getItem("theme");
-    }
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      return "dark";
-    }
-    return "light";
-  })();
-
-  if (theme === "light") {
-    document.documentElement.classList.remove("dark");
-  } else {
-    document.documentElement.classList.add("dark");
-  }
-  window.localStorage.setItem("theme", theme);
-</script> -->

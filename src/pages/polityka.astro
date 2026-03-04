@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+interface Props {
+  firstName: string;
+  lastName:string;
+}
+const { 
+  firstName, 
+  lastName
+} = Astro.props;
+---
+
+<Layout title="Polityka Prywatności">
+  <section class="py-24 bg-white dark:bg-slate-950">
+    <div class="container mx-auto px-5 max-w-3xl text-gray-700 dark:text-gray-300 leading-relaxed">
+      <h1 class="text-4xl font-bold mb-8 text-gray-900 dark:text-white font-serif">Polityka Prywatności</h1>
+      
+      <h2 class="text-xl font-bold mt-8 mb-4 text-gray-900 dark:text-white">1. Informacje ogólne</h2>
+      <p>Administratorem danych osobowych zbieranych za pośrednictwem strony jest Grzegorz Kossowski z siedzibą w Warszawie. Możesz się ze mną skontaktować pod adresem: grzegorz.kossowski@gmail.com.</p>
+
+      <h2 class="text-xl font-bold mt-8 mb-4 text-gray-900 dark:text-white">2. Jakie dane zbieram?</h2>
+      <p>Zbieram dane, które dobrowolnie podajesz w formularzu newslettera: imię oraz adres e-mail. Strona korzysta również z plików cookies w celach statystycznych (np. Google Analytics) oraz technicznych.</p>
+
+      <h2 class="text-xl font-bold mt-8 mb-4 text-gray-900 dark:text-white">3. Cel przetwarzania danych</h2>
+      <ul class="list-disc ml-6 mt-2 mb-4">
+        <li>Wysyłka newslettera z informacjami o nowościach i premierach.</li>
+        <li>Analiza ruchu na stronie w celu poprawy jej działania.</li>
+      </ul>
+
+      <h2 class="text-xl font-bold mt-8 mb-4 text-gray-900 dark:text-white">4. Prawa użytkownika</h2>
+      <p>Masz prawo do wglądu w swoje dane, ich poprawiania, ograniczenia przetwarzania oraz żądania ich usunięcia (prawo do bycia zapomnianym). Wypisanie się z newslettera jest możliwe w każdej chwili za pomocą linku w stopce wiadomości.</p>
+
+      <h2 class="text-xl font-bold mt-8 mb-4 text-gray-900 dark:text-white">5. Cookies</h2>
+      <p>Strona wykorzystuje pliki cookies do przechowywania informacji o Twoich preferencjach (np. tryb ciemny/jasny). Możesz zablokować cookies w ustawieniach swojej przeglądarki.</p>
+    </div>
+  </section>
+</Layout>
