@@ -4,8 +4,9 @@ interface Props {
   user: string;
   domain: string;
   label?: string;
+  className?:string;
 }
-const { user, domain, label } = Astro.props;
+const { user, domain, label, className="" } = Astro.props;
 ---
 
 <a 
@@ -13,7 +14,7 @@ const { user, domain, label } = Astro.props;
   id="protected-email"
   data-user={user}
   data-domain={domain}
-  class="text-romance-600 dark:text-gold-500 hover:underline cursor-pointer"
+  class={`text-romance-600 dark:text-gold-500 hover:underline cursor-pointer ${className}`}
 >
   {label || "Wyślij wiadomość"}
 </a>

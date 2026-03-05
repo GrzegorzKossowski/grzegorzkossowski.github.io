@@ -19,7 +19,7 @@ const { title, showNewsletter = true } = Astro.props;
   </head>
   <body>
     <ScrollToTop />
-    <Navigation firstName="Grzegorz" lastName="Kossowski" />
+    <Navigation firstName="Grzegorz" lastName="Kossowski" showNewsletter={showNewsletter}/>
     <article>
       <slot />
     </article>

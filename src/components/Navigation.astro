@@ -5,8 +5,9 @@ import { slugify } from "../utils/slugify";
 interface Props {
   firstName?: string;
   lastName?: string;
+  showNewsletter?: boolean;
 }
-const { firstName, lastName } = Astro.props;
+const { firstName, lastName, showNewsletter } = Astro.props;
 const navLinks = [
   { href: "/nowosci", label: "Nowości" },
   { href: "/ksiazki", label: "Książki" },
@@ -48,14 +49,18 @@ const navLinks = [
           ))
         }
       </nav>
-
-      <a
-        href="#newsletter"
-        class="hidden lg:inline-flex items-center justify-center btn-primary py-2! px-5! text-sm mr-6"
-      >
-        <BookOpen class="mr-2" size={16} />
-        Dla Ciebie
-      </a>
+      
+      {
+        showNewsletter && (
+          <a
+            href="#newsletter"
+            class="hidden lg:inline-flex items-center justify-center btn-primary py-2! px-5! text-sm mr-6"
+          >
+            <BookOpen class="mr-2" size={16} />
+            Dla Ciebie
+          </a>
+        )
+      }
 
       <div class="pl-6">
         <ThemeIcon />

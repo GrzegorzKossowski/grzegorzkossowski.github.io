@@ -1,0 +1,103 @@
+---
+import SmartEmail from "../components/SmartEmail.astro";
+import Layout from "../layouts/Layout.astro";
+import { Handshake, BookOpen, PenTool, BarChart3 } from "lucide-astro";
+---
+
+<Layout title="Współpraca | Twoje Imię i Nazwisko">
+  <section class="container mx-auto py-16 px-4">
+    {/* Header sekcji */}
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <h1 class="text-4xl md:text-6xl font-serif mb-6">
+        Stwórzmy coś <span class="text-romance-600 dark:text-gold-500"
+          >razem</span
+        >
+      </h1>
+      <p class="text-lg text-gray-600 dark:text-gray-400">
+        Jestem otwarty na ciekawe projekty, które łączą pasję do literatury z
+        kreatywnym podejściem do promocji czytelnictwa.
+      </p>
+    </div>
+
+    {/* Formy współpracy */}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-20">
+      <div
+        class="p-8 rounded-2xl bg-white dark:bg-slate-900/40 border border-gray-100 dark:border-slate-800 shadow-sm"
+      >
+        <div
+          class="w-12 h-12 bg-romance-100 dark:bg-slate-800 text-romance-600 dark:text-gold-500 rounded-lg flex items-center justify-center mb-6"
+        >
+          <BookOpen size={28} />
+        </div>
+        <h3 class="text-xl font-bold mb-3">Recenzje i Promocja</h3>
+        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+          Współpraca z blogerami, bookstagramerami i serwisami literackimi przy
+          premierach nowych tytułów oraz akcjach specjalnych.
+        </p>
+      </div>
+
+      <div
+        class="p-8 rounded-2xl bg-white dark:bg-slate-900/40 border border-gray-100 dark:border-slate-800 shadow-sm"
+      >
+        <div
+          class="w-12 h-12 bg-romance-100 dark:bg-slate-800 text-romance-600 dark:text-gold-500 rounded-lg flex items-center justify-center mb-6"
+        >
+          <Handshake size={28} />
+        </div>
+        <h3 class="text-xl font-bold mb-3">Spotkania Autorskie</h3>
+        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+          Warsztaty pisarskie, panele dyskusyjne oraz spotkania w bibliotekach i
+          księgarniach na terenie całego kraju.
+        </p>
+      </div>
+
+      <div
+        class="p-8 rounded-2xl bg-white dark:bg-slate-900/40 border border-gray-100 dark:border-slate-800 shadow-sm"
+      >
+        <div
+          class="w-12 h-12 bg-romance-100 dark:bg-slate-800 text-romance-600 dark:text-gold-500 rounded-lg flex items-center justify-center mb-6"
+        >
+          <PenTool size={28} />
+        </div>
+        <h3 class="text-xl font-bold mb-3">Teksty na zamówienie</h3>
+        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+          Tworzenie felietonów, opowiadań do antologii oraz gościnne wpisy na
+          portale branżowe i literackie.
+        </p>
+      </div>
+
+      <div
+        class="p-8 rounded-2xl bg-white dark:bg-slate-900/40 border border-gray-100 dark:border-slate-800 shadow-sm"
+      >
+        <div
+          class="w-12 h-12 bg-romance-100 dark:bg-slate-800 text-romance-600 dark:text-gold-500 rounded-lg flex items-center justify-center mb-6"
+        >
+          <BarChart3 size={28} />
+        </div>
+        <h3 class="text-xl font-bold mb-3">Partnerstwa Marek</h3>
+        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+          Ambasadorstwo marek związanych z lifestylem, technologią dla twórców
+          czy akcesoriami dla moli książkowych.
+        </p>
+      </div>
+    </div>
+
+    {/* Call to action / Statystyki */}
+    <div
+      class="bg-gray-50 dark:bg-slate-800/50 rounded-3xl p-8 md:p-12 text-center border border-gray-100 dark:border-slate-700"
+    >
+      <h2 class="text-2xl md:text-3xl font-bold font-serif mb-6">
+        Masz inny pomysł? Napisz!
+      </h2>
+      <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-xl mx-auto">
+        Każda propozycja jest rozpatrywana indywidualnie. Staram się odpowiadać
+        na wszystkie wiadomości w ciągu 48 godzin.
+      </p>
+      <SmartEmail
+        user="grzegorz.kossowski"
+        domain="gmail.com"
+        label="Napisz do mnie"
+      />
+    </div>
+  </section>
+</Layout>
