@@ -1,0 +1,151 @@
+---
+import { Send } from "lucide-astro";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Kontakt | Napisz do mnie">
+  <section class="container mx-auto py-16 px-4 max-w-2xl">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-serif mb-4">
+        Napisz do <span class="text-romance-600 dark:text-gold-500">mnie</span>
+      </h1>
+      <p class="text-gray-600 dark:text-gray-400">
+        Masz pytanie? Skorzystaj z formularza poniżej.
+      </p>
+    </div>
+
+    <div
+      class="bg-white dark:bg-slate-900/40 p-8 rounded-3xl border border-gray-100 dark:border-slate-800 shadow-sm"
+    >
+      <form
+        action="https://api.staticforms.dev/submit"
+        method="POST"
+        class="space-y-6"
+      >
+        {/* Static Forms Configuration */}
+        <input type="hidden" name="apiKey" value="YOUR_API_KEY" />
+
+        <input
+          type="hidden"
+          name="redirectTo"
+          value="https://twojadomena.pl/kontakt/success"
+        />
+
+        {/* Honeypot - niewidoczny dla ludzi i czytników */}
+        <input
+          type="text"
+          name="honeypot"
+          style="display:none"
+          tabindex="-1"
+          aria-hidden="true"
+          autocomplete="off"
+        />
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-2">
+            <label
+              for="first_name"
+              class="text-sm font-bold uppercase tracking-widest opacity-70"
+              >Imię *</label
+            >
+            <input
+              type="text"
+              name="first_name"
+              id="first_name"
+              required
+              placeholder="Twoje imię"
+              class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-slate-700 bg-transparent focus:ring-2 focus:ring-romance-500 outline-none transition-all"
+            />
+          </div>
+          <div class="space-y-2">
+            <label
+              for="last_name"
+              class="text-sm font-bold uppercase tracking-widest opacity-70"
+              >Nazwisko</label
+            >
+            <input
+              type="text"
+              name="last_name"
+              id="lastName"
+              placeholder="Twoje nazwisko"
+              class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-slate-700 bg-transparent focus:ring-2 focus:ring-romance-500 outline-none transition-all"
+            />
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <label
+            for="email"
+            class="text-sm font-bold uppercase tracking-widest opacity-70"
+            >Adres E-mail *</label
+          >
+          <input
+            type="email"
+            name="email"
+            id="email"
+            required
+            placeholder="twoj@email.com"
+            class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-slate-700 bg-transparent focus:ring-2 focus:ring-romance-500 outline-none transition-all"
+          />
+        </div>
+
+        {/* Nowe pole: Tytuł wiadomości */}
+        <div class="space-y-2">
+          <label
+            for="subject"
+            class="text-sm font-bold uppercase tracking-widest opacity-70"
+            >Temat wiadomości *</label
+          >
+          <input
+            type="text"
+            name="subject"
+            id="subject"
+            required
+            maxlength="250"
+            placeholder="O czym chcesz napisać?"
+            class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-slate-700 bg-transparent focus:ring-2 focus:ring-romance-500 outline-none transition-all"
+          />
+        </div>
+
+        <div class="space-y-2">
+          <div class="flex justify-between">
+            <label
+              for="message"
+              class="text-sm font-bold uppercase tracking-widest opacity-70"
+              >Treść wiadomości *</label
+            >
+            <span id="charCount" class="text-[10px] opacity-50 font-mono"
+              >0 / 1000</span
+            >
+          </div>
+          <textarea
+            name="message"
+            id="message"
+            required
+            rows="6"
+            maxlength="1000"
+            placeholder="Twoja wiadomość..."
+            class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-slate-700 bg-transparent focus:ring-2 focus:ring-romance-500 outline-none transition-all resize-none"
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full bg-romance-600 hover:bg-romance-700 text-white font-bold py-4 rounded-xl transition-all hover:scale-[1.02] active:scale-95 shadow-lg shadow-romance-600/20 flex items-center justify-center gap-2"
+        >
+          <Send class="mr-2" size={16} /> Wyślij wiadomość
+        </button>
+      </form>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const textarea = document.getElementById("message") as HTMLTextAreaElement;
+  const countDisplay = document.getElementById("charCount");
+
+  textarea?.addEventListener("input", () => {
+    const length = textarea.value.length;
+    if (countDisplay) countDisplay.textContent = `${length} / 1000`;
+  });
+</script>

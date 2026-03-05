@@ -1,0 +1,26 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { CheckCircle } from "lucide-astro";
+---
+
+<Layout title="Wiadomość wysłana | Sukces">
+  <section class="container mx-auto py-24 px-4 flex flex-col items-center text-center">
+    <div class="w-20 h-20 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-full flex items-center justify-center mb-8 animate-bounce">
+      <CheckCircle size={48} />
+    </div>
+
+    <h1 class="text-4xl md:text-5xl font-serif mb-4">Wiadomość <span class="text-romance-600 dark:text-gold-500">wysłana!</span></h1>
+    <p class="text-lg text-gray-600 dark:text-gray-400 max-w-md mb-12">
+      Dziękuję za kontakt. Portal został otwarty, a Twoja wiadomość bezpiecznie dotarła do mojego świata. Odpowiem najszybciej, jak to możliwe.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a href="/" class="bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 font-bold py-3 px-8 rounded-xl transition-all hover:opacity-90">
+        Powrót do strony głównej
+      </a>
+      <a href="/ksiazki" class="border border-gray-200 dark:border-slate-700 font-bold py-3 px-8 rounded-xl transition-all hover:bg-gray-50 dark:hover:bg-slate-800">
+        Przeglądaj książki
+      </a>
+    </div>
+  </section>
+</Layout>

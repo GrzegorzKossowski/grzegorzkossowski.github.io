@@ -1,10 +1,10 @@
 ---
 import SmartEmail from "../components/SmartEmail.astro";
 import Layout from "../layouts/Layout.astro";
-import { Handshake, BookOpen, PenTool, BarChart3 } from "lucide-astro";
+import { Handshake, BookOpen, PenTool, BarChart3, Mail, Mailbox, Send } from "lucide-astro";
 ---
 
-<Layout title="Współpraca | Twoje Imię i Nazwisko">
+<Layout title="Współpraca">
   <section class="container mx-auto py-16 px-4">
     {/* Header sekcji */}
     <div class="max-w-3xl mx-auto text-center mb-16">
@@ -93,11 +93,11 @@ import { Handshake, BookOpen, PenTool, BarChart3 } from "lucide-astro";
         Każda propozycja jest rozpatrywana indywidualnie. Staram się odpowiadać
         na wszystkie wiadomości w ciągu 48 godzin.
       </p>
-      <SmartEmail
-        user="grzegorz.kossowski"
-        domain="gmail.com"
-        label="Napisz do mnie"
-      />
+      <a
+        href="/kontakt"
+        class="lg:inline-flex items-center justify-center btn-primary py-2! px-5! text-sm mr-6"
+        ><Send class="mr-2" size={16} /> Napisz</a
+      >
     </div>
   </section>
 </Layout>
