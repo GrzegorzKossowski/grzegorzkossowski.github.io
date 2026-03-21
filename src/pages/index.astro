@@ -36,12 +36,20 @@ import LatestBooks from "../components/LatestBooks.astro";
       </a>
     </Fragment>
 
-    <img
-      slot="image"
-      src="/images/latest-book-mockup-2.jpg"
-      alt="Najnowsza książka"
-      class="relative rounded-xl shadow-2xl transition duration-500 hover:scale-[1.01]"
-    />
+    <div slot="image" class="relative group">
+      <!-- Obrazek -->
+      <img
+        src="/images/latest-book-mockup-3.jpg"
+        alt="Najnowsza książka"
+        class="rounded-xl shadow-2xl transition duration-500 group-hover:scale-[1.01]"
+      />
+
+      <!-- Nakładka tekstowa -->
+      <h2 class="absolute bottom-5 right-5 text-gold-500 uppercase italic text-shadow-md text-shadow-black">
+        Już wkrótce
+      <br class="hidden lg:inline-block" /> w empik.com
+      </h2>
+    </div>
   </Hero>
   <LatestBooks />
   <Feature
