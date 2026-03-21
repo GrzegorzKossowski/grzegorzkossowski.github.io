@@ -4,7 +4,7 @@ category: "erotyka"
 cover: "../../assets/covers/hiszpanskie-noce.jpg"
 publishDate: 2026-03-06
 # isNew: true
-buyUrl: "https://www.empik.com/p1715728630,ebooki-i-mp3-p"
+buyUrl: "https://www.empik.com/hiszpanskie-noce-zakazana-namietnosc-kossowski-grzegorz,p1715728630,ebooki-i-mp3-p"
 author: "Grzegorz Kossowski"
 publisher: "Grzegorz Kossowski"
 isbn: "brak"

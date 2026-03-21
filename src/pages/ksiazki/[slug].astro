@@ -1,7 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import { ShoppingCart, BookTemplate, Globe, Tag } from "lucide-astro";
+import { ShoppingCart, BookTemplate, Globe, Tag, Timer } from "lucide-astro";
 
 export async function getStaticPaths() {
   const allBooks = await getCollection("books");
@@ -36,13 +36,23 @@ const { Content } = await book.render();
         >
         <h1 class="text-h1 mt-2 mb-6">{book.data.title}</h1>
 
-        <a
-          href={book.data.buyUrl}
-          target="_blank"
-          class="btn-primary inline-flex items-center gap-2 mb-10"
-        >
-          <ShoppingCart size={20} /> Kup na Empik.com
-        </a>
+        {
+          book.data.publishDate > new Date() ? (
+            <div
+              class="btn-primary inline-flex items-center gap-2 mb-10"
+            >
+              <Timer size={20} /> Wkrótce w sprzedaży
+            </div>
+          ) : (
+            <a
+              href={book.data.buyUrl}
+              target="_blank"
+              class="btn-primary inline-flex items-center gap-2 mb-10"
+            >
+              <ShoppingCart size={20} /> Kup na Empik.com
+            </a>
+          )
+        }
 
         <div class="prose dark:prose-invert max-w-none mb-16">
           <h2 class="text-2xl font-serif mb-4">Opis produktu</h2>
