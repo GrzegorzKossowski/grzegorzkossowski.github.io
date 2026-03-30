@@ -4,7 +4,7 @@ category: "kryminał"
 cover: "../../assets/covers/kobieta-w-worku.jpg"
 publishDate: 2026-03-30
 # isNew: true
-buyUrl: "https://www.empik.com/audiobooki-i-ebooki/ebooki,3501,s?q=kossowski%20grzegorz&sort=publishDesc"
+buyUrl: "https://www.empik.com/kobieta-w-worku-kossowski-grzegorz,p1723443372,ebooki-i-mp3-p"
 author: "Grzegorz Kossowski"
 publisher: "Grzegorz Kossowski"
 isbn: "brak"
