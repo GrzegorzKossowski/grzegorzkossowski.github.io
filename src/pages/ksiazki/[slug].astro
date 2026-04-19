@@ -1,7 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import { ShoppingCart, BookTemplate, Globe, Tag, Timer } from "lucide-astro";
+import { ShoppingCart, BookTemplate, Globe, Tag, Timer, Check } from "lucide-astro";
 
 export async function getStaticPaths() {
   const allBooks = await getCollection("books");
@@ -23,7 +23,7 @@ const { Content } = await book.render();
     <div class="flex flex-wrap lg:flex-nowrap gap-12">
       <div class="w-full lg:w-1/3">
         <img
-          src={book.data.cover.src}
+          src={book?.data?.cover?.src}
           alt={book.data.title}
           class="rounded-2xl shadow-2xl w-full sticky top-24"
         />
@@ -104,8 +104,8 @@ const { Content } = await book.render();
             <div
               class="flex justify-between border-b border-gray-200 dark:border-slate-700 pb-2"
             >
-              <dt class="opacity-60">ISBN:</dt>
-              <dd class="text-gray-900 dark:text-white">{book.data.isbn}</dd>
+              <dt class="opacity-60">Audiobook:</dt>
+              <dd class="text-gray-900 dark:text-white">{book.data.audiobook ? <Check size={14} /> : "brak"}</dd>
             </div>
 
             <div

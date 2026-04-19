@@ -31,6 +31,7 @@ const books = defineCollection({
       isbn: z.string().optional(), // ISBN może być pusty
       pages: z.number().optional(),
       format: z.string().default("Ebook (EPUB, MOBI)"),
+      audiobook: z.boolean().default(false),
       language: z.string().default("polski"),
       price: z.number().optional(),
     }),

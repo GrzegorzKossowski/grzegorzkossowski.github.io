@@ -12,6 +12,7 @@ publisher: "Grzegorz Kossowski"
 isbn: "brak"
 pages: 999
 format: "Ebook (EPUB, PDF, empik.go)"
+audiobook: false
 language: "polski"
 price: 14.99
 ---

@@ -70,6 +70,10 @@
           "type": "string",
           "default": "Ebook (EPUB, MOBI)"
         },
+        "audiobook": {
+          "type": "boolean",
+          "default": false
+        },
         "language": {
           "type": "string",
           "default": "polski"
