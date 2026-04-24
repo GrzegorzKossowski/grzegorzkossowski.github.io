@@ -4,7 +4,7 @@ category: "romantasy"
 cover: "../../assets/covers/dotyk-i-lod.jpg"
 publishDate: 2026-04-24
 # isNew: true
-buyUrl: "https://www.empik.com/szukaj/produkt?author=kossowski+grzegorz&sort=popularityDesc"
+buyUrl: "https://www.empik.com/dotyk-i-lod-emanacja-mocy-kossowski-grzegorz,p1729912041,ebooki-i-mp3-p"
 author: "Grzegorz Kossowski"
 publisher: "Grzegorz Kossowski"
 isbn: "brak"
@@ -12,7 +12,7 @@ pages: 253
 format: "Ebook (EPUB, PDF, empik.go)"
 audiobook: true
 language: "polski"
-price: 1.00
+price: 29.99
 ---
 
 Wiktoria, inżynierka z Warszawy, budzi się w lodowym piekle Eisgardu.
