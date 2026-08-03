@@ -30,7 +30,12 @@ Object.values(groupedSeries).forEach((seriesBooks) => {
   );
 });
 
-const seriesNames = Object.keys(groupedSeries).sort();
+const latestDateForSeries = (name: string) =>
+  Math.max(...groupedSeries[name].map((book) => book.data.publishDate.getTime()));
+
+const seriesNames = Object.keys(groupedSeries).sort(
+  (a, b) => latestDateForSeries(b) - latestDateForSeries(a),
+);
 const now = new Date();
 const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000;
 ---

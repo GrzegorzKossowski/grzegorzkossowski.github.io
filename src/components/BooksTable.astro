@@ -69,12 +69,12 @@ const allBooks = (await getCollection("books")).sort(
               </div>
 
               {/* 3. Gatunek (Desktop) */}
-              <div class="hidden lg:block text-sm italic text-gray-600 dark:text-gray-400">
+              <div class="hidden lg:block text-base italic text-gray-600 dark:text-gray-400">
                 {book.data.category}
               </div>
 
               {/* 4. Premiera */}
-              <div class="hidden md:block text-sm text-center font-medium opacity-70">
+              <div class="hidden md:block text-base text-center font-medium opacity-70">
                 {book.data.publishDate.toLocaleDateString("pl-PL")}
               </div>
 
