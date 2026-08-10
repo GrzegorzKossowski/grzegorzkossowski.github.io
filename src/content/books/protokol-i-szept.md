@@ -12,7 +12,7 @@ pages: 200
 format: "Ebook (EPUB, empik.go)"
 audiobook: false
 language: "polski"
-price: 00.00
+price: 29.99
 ---
 
 W królestwie Verthalis etykieta jest bronią. Na dwór przybywa Wódz Wojny z dzikiej Północy, który ma podpisać traktat pokojowy i który gardzi każdą zasadą Protokołu.
