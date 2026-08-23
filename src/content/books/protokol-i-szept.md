@@ -4,7 +4,7 @@ category: "romantasy"
 cover: "../../assets/covers/protokol-i-szept.jpg"
 publishDate: 2026-08-10
 # isNew: true
-buyUrl: "https://www.empik.com/szukaj/produkt?author=kossowski+grzegorz&sort=popularityDesc"
+buyUrl: "https://www.empik.com/protokol-i-szept-kossowski-grzegorz,p1770837779,ebooki-i-mp3-p"
 author: "Grzegorz Kossowski"
 publisher: "Grzegorz Kossowski"
 isbn: "brak"
