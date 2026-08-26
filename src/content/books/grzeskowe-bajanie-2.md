@@ -2,7 +2,7 @@
 title: "Grześkowe Bajanie. Tom 2"
 series: "Grześkowe Bajanie"
 seriesOrder: 2
-category: "sf"
+category: "dziecięca"
 cover: "../../assets/covers/grzeskowe-bajanie-2.jpg"
 publishDate: 2024-01-06
 # isNew: true
