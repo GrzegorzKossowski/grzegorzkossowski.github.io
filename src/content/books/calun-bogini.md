@@ -4,7 +4,7 @@ category: "romantasy"
 cover: "../../assets/covers/calun-bogini.jpg"
 publishDate: 2026-09-04
 # isNew: true
-buyUrl: "https://www.empik.com/szukaj/produkt?author=kossowski+grzegorz&sort=popularityDesc"
+buyUrl: "https://www.empik.com/p1778063200,ebooki-i-mp3-p"
 author: "Grzegorz Kossowski"
 publisher: "Grzegorz Kossowski"
 isbn: "brak"
