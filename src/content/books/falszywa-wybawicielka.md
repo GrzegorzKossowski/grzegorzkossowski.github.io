@@ -4,7 +4,7 @@ category: "romantasy"
 cover: "../../assets/covers/falszywa-wybawicielka.jpg"
 publishDate: 2026-09-25
 # isNew: true
-buyUrl: "https://www.empik.com/szukaj/produkt?author=kossowski+grzegorz&sort=popularityDesc"
+buyUrl: "https://www.empik.com/falszywa-wybawicielka-kossowski-grzegorz,p1783222719,ebooki-i-mp3-p"
 author: "Grzegorz Kossowski"
 publisher: "Grzegorz Kossowski"
 isbn: "brak"

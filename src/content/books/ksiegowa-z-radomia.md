@@ -4,7 +4,7 @@ category: "romantasy"
 cover: "../../assets/covers/ksiegowa-z-radomia.jpg"
 publishDate: 2026-10-09
 # isNew: true
-buyUrl: "https://www.empik.com/szukaj/produkt?author=kossowski+grzegorz"
+buyUrl: "https://www.empik.com/p1795442538,ebooki-i-mp3-p"
 author: "Grzegorz Kossowski"
 publisher: "Grzegorz Kossowski"
 isbn: "brak"

@@ -4,7 +4,7 @@ category: "romantasy"
 cover: "../../assets/covers/plomien-uzurpatorki.jpg"
 publishDate: 2026-10-23
 # isNew: true
-buyUrl: "https://www.empik.com/szukaj/produkt?author=kossowski+grzegorz&sort=publishDesc"
+buyUrl: "https://www.empik.com/p1796407268,ebooki-i-mp3-p"
 author: "Grzegorz Kossowski"
 publisher: "Grzegorz Kossowski"
 isbn: "brak"
