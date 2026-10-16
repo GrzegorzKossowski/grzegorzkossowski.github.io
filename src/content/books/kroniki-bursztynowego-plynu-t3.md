@@ -6,7 +6,7 @@ category: "romantasy"
 cover: "../../assets/covers/kroniki-t3.jpg"
 publishDate: 2026-07-06
 # isNew: true
-buyUrl: "https://www.empik.com/szukaj/produkt?author=kossowski+grzegorz&sort=popularityDesc"
+buyUrl: "https://www.empik.com/na-95-procent-kroniki-bursztynowego-plynu-tom-3-kossowski-grzegorz,p1741474118,ebooki-i-mp3-p"
 author: "Grzegorz Kossowski"
 publisher: "Grzegorz Kossowski"
 isbn: "brak"

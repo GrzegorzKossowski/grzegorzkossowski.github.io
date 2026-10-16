@@ -6,7 +6,7 @@ category: "romantasy"
 cover: "../../assets/covers/kroniki-t2.jpg"
 publishDate: 2026-06-15
 # isNew: true
-buyUrl: "https://www.empik.com/szukaj/produkt?author=kossowski+grzegorz&sort=popularityDesc"
+buyUrl: "https://www.empik.com/ona-wilk-i-lisica-kroniki-bursztynowego-plynu-tom-2-kossowski-grzegorz,p1741476295,ebooki-i-mp3-p"
 author: "Grzegorz Kossowski"
 publisher: "Grzegorz Kossowski"
 isbn: "brak"

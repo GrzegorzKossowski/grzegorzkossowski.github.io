@@ -6,7 +6,7 @@ category: "romantasy"
 cover: "../../assets/covers/kroniki-t1.jpg"
 publishDate: 2026-05-25
 # isNew: true
-buyUrl: "https://www.empik.com/szukaj/produkt?author=kossowski+grzegorz&sort=popularityDesc"
+buyUrl: "https://www.empik.com/morze-wodka-i-pocalunek-kroniki-bursztynowego-plynu-tom-1-kossowski-grzegorz,p1741374526,ebooki-i-mp3-p"
 author: "Grzegorz Kossowski"
 publisher: "Grzegorz Kossowski"
 isbn: "brak"
