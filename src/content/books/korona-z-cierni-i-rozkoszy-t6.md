@@ -10,7 +10,7 @@ buyUrl: "https://www.empik.com/szukaj/produkt?author=kossowski+grzegorz&sort=pop
 author: "Grzegorz Kossowski"
 publisher: "Grzegorz Kossowski"
 isbn: "brak"
-pages: 0
+pages: 139
 format: "Ebook (EPUB, empik.go)"
 audiobook: false
 language: "polski"
