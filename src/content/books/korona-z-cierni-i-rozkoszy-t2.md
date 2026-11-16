@@ -6,7 +6,7 @@ category: "romantasy"
 cover: "../../assets/covers/korona-cierni-t2.jpg"
 publishDate: 2026-11-06
 # isNew: true
-buyUrl: "https://www.empik.com/szukaj/produkt?author=kossowski+grzegorz&sort=popularityDesc"
+buyUrl: "https://www.empik.com/zew-krwi-i-rozkoszy-korona-z-cierni-i-rozkoszy-tom-2-kossowski-grzegorz,p1814128876,ebooki-i-mp3-p"
 author: "Grzegorz Kossowski"
 publisher: "Grzegorz Kossowski"
 isbn: "brak"

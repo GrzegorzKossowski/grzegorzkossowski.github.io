@@ -6,7 +6,7 @@ category: "romantasy"
 cover: "../../assets/covers/korona-cierni-t1.jpg"
 publishDate: 2026-10-30
 # isNew: true
-buyUrl: "https://www.empik.com/szukaj/produkt?author=kossowski+grzegorz&sort=popularityDesc"
+buyUrl: "https://www.empik.com/uleglosc-i-krew-korona-z-cierni-i-rozkoszy-tom-1-kossowski-grzegorz,p1814128937,ebooki-i-mp3-p"
 author: "Grzegorz Kossowski"
 publisher: "Grzegorz Kossowski"
 isbn: "brak"

@@ -6,7 +6,7 @@ category: "romantasy"
 cover: "../../assets/covers/korona-cierni-t3.jpg"
 publishDate: 2026-11-13
 # isNew: true
-buyUrl: "https://www.empik.com/szukaj/produkt?author=kossowski+grzegorz&sort=popularityDesc"
+buyUrl: "https://www.empik.com/etykieta-cienia-korona-z-cierni-i-rozkoszy-tom-3-kossowski-grzegorz,p1814126489,ebooki-i-mp3-p"
 author: "Grzegorz Kossowski"
 publisher: "Grzegorz Kossowski"
 isbn: "brak"
