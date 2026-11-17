@@ -4,7 +4,7 @@ category: "romantasy"
 cover: "../../assets/covers/dziedzictwo-portowej-rozy.jpg"
 publishDate: 2026-12-11
 # isNew: true
-buyUrl: "https://www.empik.com/szukaj/produkt?author=kossowski+grzegorz&sort=scoreDesc"
+buyUrl: "https://www.empik.com/p1832602549,ebooki-i-mp3-p"
 author: "Grzegorz Kossowski"
 publisher: "Grzegorz Kossowski"
 isbn: "brak"
