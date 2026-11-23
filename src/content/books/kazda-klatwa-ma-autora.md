@@ -4,7 +4,7 @@ category: "romantasy"
 cover: "../../assets/covers/kazda-klatwa-ma-autora.jpg"
 publishDate: 2026-12-18
 # isNew: true
-buyUrl: "https://www.empik.com/szukaj/produkt?author=kossowski+grzegorz&sort=scoreDesc"
+buyUrl: "https://www.empik.com/p1842730920,ebooki-i-mp3-p"
 author: "Grzegorz Kossowski"
 publisher: "Grzegorz Kossowski"
 isbn: "brak"
