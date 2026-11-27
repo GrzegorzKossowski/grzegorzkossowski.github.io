@@ -6,7 +6,7 @@ category: "romantasy"
 cover: "../../assets/covers/korona-cierni-t5.jpg"
 publishDate: 2026-11-27
 # isNew: true
-buyUrl: "https://www.empik.com/szukaj/produkt?author=kossowski+grzegorz&sort=popularityDesc"
+buyUrl: "https://www.empik.com/ofiara-ze-zlota-i-ciala-korona-z-cierni-i-rozkoszy-tom-5-kossowski-grzegorz,p1814129264,ebooki-i-mp3-p"
 author: "Grzegorz Kossowski"
 publisher: "Grzegorz Kossowski"
 isbn: "brak"
